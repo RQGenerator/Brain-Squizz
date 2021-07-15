@@ -4,21 +4,24 @@ import Instructions from './components/Instructions'
 import { useState } from 'react'
 
 function App() {
-  const [display, setDisplay] = useState(false)
+          const [display, setDisplay] = useState(false)
 
-  //Show instructions during gameplay
-  const pauseGame = () => {
-    setDisplay(true)
-  }
+          //Show instructions during gameplay
+          const pauseGame = () => {
+                    setDisplay(true)
+          }
 
-  return (
-    <>
-      {/* Button for Menu component */}
-      <Button display={display} setDisplay={setDisplay} />
+          return (
+                    <>
+                              {/* Button for Menu component */}
+                              <Button
+                                        display={display}
+                                        setDisplay={setDisplay}
+                              />
 
-      {display && <Instructions />}
-    </>
-  )
+                              {display && <Instructions />}
+                    </>
+          )
 }
 
 export default App
