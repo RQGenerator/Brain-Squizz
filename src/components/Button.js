@@ -1,7 +1,9 @@
 const Button = ({ display, setDisplay }) => {
     return (
         <div>
-            <button onClick={() => setDisplay(!display)}>Click Here </button>
+            <button onClick={() => setDisplay(!display)}>
+                Click Here{' '}
+            </button>
         </div>
     )
 }
