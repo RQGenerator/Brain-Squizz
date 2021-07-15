@@ -14,7 +14,10 @@ function App() {
   return (
     <>
       {/* Button for Menu component */}
-      <Button display={display} setDisplay={setDisplay} />
+      <Button
+        display={display}
+        setDisplay={setDisplay}
+      />
 
       {display && <Instructions />}
     </>
