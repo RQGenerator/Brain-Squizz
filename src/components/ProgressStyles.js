@@ -1,12 +1,12 @@
 import Styled from 'styled-components'
 
-const Container = Styled.div `
+const Container = Styled.div`
     progress {
         margin-right: 10px;
     }
     
     progress[value] {
-        width: ${props => props.width};
+        width: ${(props) => props.width};
         -webkit-appearance: none;
         appearance: none;
     }
@@ -30,8 +30,4 @@ const Container = Styled.div `
         color: red;
     }
     `
-    export default Container;
-
-
-      
-       
+export default Container
