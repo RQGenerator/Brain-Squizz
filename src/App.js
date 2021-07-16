@@ -1,8 +1,12 @@
-import QuestionTimer from './components/QuestionTimer'
+import { useState } from 'react'
+
 const App = () => {
+  const [timer, setTimer] = useState(60)
+
   return (
     <div>
-      <QuestionTimer />
+      <p>You Clicked {timer}</p>
+      <button onClick={() => setTimer(timer + 1)}> Click Me</button>
     </div>
   )
 }
