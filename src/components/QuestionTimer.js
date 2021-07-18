@@ -5,7 +5,7 @@ const RenderTime = ({ remainingTime }) => {
 
   return (
     <div>
-      <p>Remaining</p>
+      <p></p>
       <p>{remainingTime}</p>
       <p>Seconds</p>
     </div>
