@@ -1,11 +1,15 @@
-const QuestionTimer = () => {
+const RenderTime = ({ remainingTime }) => {
+  if (remainingTime === 0) {
+    return <div>...Too Late</div>
+  }
 
-  })
   return (
     <div>
-      <h1>HELLO</h1>
+      <p>Remaining</p>
+      <p>{remainingTime}</p>
+      <p>Seconds</p>
     </div>
   )
 }
 
-export default QuestionTimer
+export default RenderTime
