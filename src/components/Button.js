@@ -2,7 +2,7 @@ const Button = ({ display, setDisplay }) => {
     return (
         <div>
             <button onClick={() => setDisplay(!display)}>
-                Click Here{' '}
+                Click Here
             </button>
         </div>
     )
