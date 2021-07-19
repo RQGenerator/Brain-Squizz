@@ -108,8 +108,10 @@ const quiz = [
 const Game = () => {
   return (
     <div>
+      {/* Timer component missing  */}
       <Question details={quiz[0].question} />
       <Answers />
+      {/* Progress component missing  */}
     </div>
   )
 }
