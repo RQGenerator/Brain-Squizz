@@ -19,6 +19,7 @@ const Instructions = ({ pauseGame }) => {
                 </div>
                 <Box>
                     <Left>
+                        {/* the images doens not work  */}
                         <img src="/src/images/logo1.png" alt="logo" />
                         <TextQuiz>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis
