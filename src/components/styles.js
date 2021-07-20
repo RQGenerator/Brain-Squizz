@@ -26,7 +26,9 @@ export const Box = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
- @media {
+ @media (max-width: 950px) {
+    flex-direction: column;
+
 
  }
 `;
@@ -66,6 +68,10 @@ border-radius: 44px;
 padding: 0px 40px;
 margin-left: 30px;
 
+@media (max-width: 950px) {
+    width: 70%;
+
+}
 `;
 
 export const Right = styled.div`
@@ -76,6 +82,10 @@ flex-direction: column;
 padding: 5px;
 align-items: center;
 width: 50%;
+
+@media (max-width: 950px) {
+    width: fit-content;
+}
 `;
 
 export const TextQuiz = styled.div`
