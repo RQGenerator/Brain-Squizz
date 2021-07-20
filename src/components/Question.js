@@ -1,5 +1,7 @@
-const Question = ({ details }) => {
-  return <div>{details}</div>
+import Question from 'QuestionStyle'
+
+const QuestionDiv = ({ details }) => {
+  return <Question>{details}</Question>
 }
 
-export default Question
+export default QuestionDiv

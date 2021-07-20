@@ -1,4 +1,4 @@
-import Question from './Question'
+import QuestionDiv from './Question'
 import Answers from './Answers'
 
 const quiz = [
@@ -109,8 +109,10 @@ const Game = () => {
   return (
     <div>
       {/* Timer component missing  */}
-      <Question details={quiz[0].question} />
-      <Answers />
+      <div>
+        <QuestionDiv details={quiz[0].question} />
+        <Answers />
+      </div>
       {/* Progress component missing  */}
     </div>
   )
