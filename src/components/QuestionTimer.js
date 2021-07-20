@@ -1,13 +1,9 @@
 const RenderTime = ({ remainingTime }) => {
-  if (remainingTime === 0) {
-    return <div>...Too Late</div>
-  }
-
   return (
     <div>
-      <p></p>
-      <p>{remainingTime}</p>
-      <p>Seconds</p>
+      <p style={{ fontSize: 30, fontWeight: 600, margin: 0, paddingBottom: 3 }}>
+        {remainingTime}
+      </p>
     </div>
   )
 }

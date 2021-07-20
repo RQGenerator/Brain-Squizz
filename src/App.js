@@ -10,8 +10,15 @@ const App = () => {
         <CountdownCircleTimer
           isPlaying
           duration={20}
-          colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
-          onComplete={() => [true, 1000]}
+          size={60}
+          strokeWidth={8}
+          colors={[
+            ['#00FF00', 0.25],
+            ['#FFFF00', 0.25],
+            ['#FFA500', 0.25],
+            ['#FF0000'],
+          ]}
+          onComplete={() => alert('too late')}
         >
           {RenderTime}
         </CountdownCircleTimer>
