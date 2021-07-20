@@ -1,11 +1,6 @@
 import styled from 'styled-components'
+import { Button2 } from './styles'
 
-
-const Button2 = styled.button`
-background: #00FFFF;
-border-radius: 14px;
-padding: 4px 30px;
-`;
 
 
 const ButtonStart = ({ pauseGame }) => {
