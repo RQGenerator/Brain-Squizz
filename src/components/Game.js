@@ -1,6 +1,9 @@
-import QuestionDiv from './Question'
-import Answers from './Answers'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+// import { useState, useEffect } from 'react'
 
+import QuestionDiv from './Question'
+import RenderTime from './QuestionTimer'
+import { InfoCircleTwoTone } from '@ant-design/icons'
 const quiz = [
   {
     category: 'Entertainment: Music',
@@ -106,14 +109,45 @@ const quiz = [
 ]
 
 const Game = () => {
+  // const [progress, setProgress] = useState(0)
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setProgress((oldValue) => {
+  //       const newValue = oldValue + 1
+
+  //       if (newValue === 10) {
+  //         clearInterval(interval)
+  //       }
+  //       return newValue
+  //     })
+  //   }, 1000)
+  // }, [])
   return (
     <div>
-      {/* Timer component missing  */}
-      <div>
-        <QuestionDiv details={quiz[0].question} />
-        <Answers />
+      <div className="game">
+        <div className="topBar">
+          <CountdownCircleTimer
+            isPlaying
+            duration={10}
+            size={60}
+            strokeWidth={8}
+            colors={[
+              ['#00FF00', 0.25],
+              ['#FFFF00', 0.25],
+              ['#FFA500', 0.25],
+              ['#FF0000'],
+            ]}
+            //onComplete={() => alert('too late')}
+          >
+            {RenderTime}
+          </CountdownCircleTimer>
+          <button>
+            <InfoCircleTwoTone />
+          </button>
+        </div>
+        <QuestionDiv details={quiz[0]} />
       </div>
-      {/* Progress component missing  */}
     </div>
   )
 }
