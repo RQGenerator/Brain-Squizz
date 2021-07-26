@@ -3,6 +3,7 @@ import Answers from './Answers'
 import { FastForwardOutlined } from '@ant-design/icons'
 
 const QuestionDiv = ({ details }) => {
+  console.log(details)
   return (
     <div>
       <div className="mainGame">
