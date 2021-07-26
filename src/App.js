@@ -8,31 +8,38 @@ import axios from 'axios'
 const App = () => {
   const [loading, setLoading] = useState(false)
   const [quiz, setQuiz] = useState([])
+  const [showScore, setShowScore] = useState(false)
 
   const fetchQuiz = () => {
     axios
       .get('https://opentdb.com/api.php?amount=10')
       .then((response) => {
         setLoading(false)
+        //redo answer struture
         setQuiz(response.data.results)
       })
-      .catch((error) => alert(error))
+      .catch((error) => alert(error, quiz))
   }
 
   return (
     <Container>
-      <Button
-        type="primary"
-        icon={<PlayCircleOutlined />}
-        loading={loading}
-        onClick={() => {
-          setLoading(true)
-          fetchQuiz()
-        }}
-      >
-        Let's Play
-      </Button>
-      {!loading && quiz.length > 0 && <Game completequiz={quiz} />}
+      {quiz.length === 0 && (
+        <Button
+          type="primary"
+          icon={<PlayCircleOutlined />}
+          loading={loading}
+          onClick={() => {
+            setLoading(true)
+            fetchQuiz()
+          }}
+        >
+          Let's Play
+        </Button>
+      )}
+      {!loading && quiz.length > 0 && !showScore && (
+        <Game completequiz={quiz} setShowScore={setShowScore} />
+      )}
+      {showScore && 'Score Title'}
     </Container>
   )
 }

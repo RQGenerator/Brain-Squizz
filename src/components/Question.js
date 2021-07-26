@@ -2,8 +2,7 @@ import ProgressBar from './ProgressBar'
 import Answers from './Answers'
 import { FastForwardOutlined } from '@ant-design/icons'
 
-const QuestionDiv = ({ details }) => {
-  console.log(details)
+const QuestionDiv = ({ details, handleAnswer, progress, totalQuestion }) => {
   return (
     <div>
       <div className="mainGame">
@@ -14,8 +13,8 @@ const QuestionDiv = ({ details }) => {
         />
       </div>
       <div className="bottomBar">
-        <ProgressBar value={1} max={10} />
-        <button>
+        <ProgressBar value={progress} max={totalQuestion} />
+        <button onClick={handleAnswer}>
           <FastForwardOutlined />
         </button>
       </div>

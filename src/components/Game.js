@@ -5,11 +5,17 @@ import QuestionDiv from './Question'
 import RenderTime from './QuestionTimer'
 import { InfoCircleTwoTone } from '@ant-design/icons'
 
-const Game = ({ completequiz }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(completequiz[0])
-  const [showScore, setShowScore] = useState(false)
-  const [score, setScore] = useState(0)
-  console.log(currentQuestion)
+const Game = ({ completequiz, setShowScore }) => {
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const totalQuestion = completequiz.length
+  const handleAnswer = (key) => {
+    const next = currentQuestion + 1
+    if (next < totalQuestion) {
+      setCurrentQuestion(next)
+    } else {
+      setShowScore(true)
+    }
+  }
   return (
     <div>
       <div className="game">
@@ -33,7 +39,12 @@ const Game = ({ completequiz }) => {
             <InfoCircleTwoTone />
           </button>
         </div>
-        <QuestionDiv details={currentQuestion[0]} />
+        <QuestionDiv
+          details={completequiz[currentQuestion]}
+          handleAnswer={handleAnswer}
+          progress={currentQuestion + 1}
+          totalQuestion={totalQuestion}
+        />
       </div>
     </div>
   )
