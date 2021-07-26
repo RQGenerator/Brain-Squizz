@@ -1,10 +1,11 @@
 import Game from './components/Game'
+import { Container } from './AppStyle'
 
 const App = () => {
   return (
-    <div className="container">
+    <Container>
       <Game />
-    </div>
+    </Container>
   )
 }
 
