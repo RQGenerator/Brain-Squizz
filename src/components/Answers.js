@@ -6,8 +6,8 @@ const Answers = ({ correct, incorrect }) => {
       <button>
         <CheckSquareTwoTone /> {correct}
       </button>
-      {incorrect.map((answer) => (
-        <button>
+      {incorrect.map((answer, key) => (
+        <button key={key}>
           <CheckSquareTwoTone /> {answer}
         </button>
       ))}
