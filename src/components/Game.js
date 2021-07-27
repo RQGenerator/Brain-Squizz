@@ -1,9 +1,11 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { useState } from 'react'
-import { GameDiv } from './GameStyle'
+import { GameDiv, TopBar, BottomBar } from './GameStyle'
 import QuestionDiv from './Question'
 import RenderTime from './QuestionTimer'
-import { InfoCircleTwoTone } from '@ant-design/icons'
+import { FastForwardOutlined, PauseOutlined } from '@ant-design/icons'
+import { Tooltip, Button } from 'antd'
+import ProgressBar from './ProgressBar'
 
 const Game = ({ completequiz, setShowScore }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -18,7 +20,7 @@ const Game = ({ completequiz, setShowScore }) => {
   }
   return (
     <GameDiv>
-      <div className="topBar">
+      <TopBar>
         <CountdownCircleTimer
           isPlaying
           duration={10}
@@ -34,16 +36,23 @@ const Game = ({ completequiz, setShowScore }) => {
         >
           {RenderTime}
         </CountdownCircleTimer>
-        <button>
-          <InfoCircleTwoTone />
-        </button>
-      </div>
+        <Tooltip title="pause">
+          <Button
+            shape="circle"
+            icon={<PauseOutlined />}
+            onClick={() => alert('Pause game and display instructions')}
+          />
+        </Tooltip>
+      </TopBar>
       <QuestionDiv
         details={completequiz[currentQuestion]}
         handleAnswer={handleAnswer}
-        progress={currentQuestion + 1}
         totalQuestion={totalQuestion}
       />
+      <BottomBar>
+        <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
+        <Button icon={<FastForwardOutlined />} onClick={handleAnswer}></Button>
+      </BottomBar>
     </GameDiv>
   )
 }
