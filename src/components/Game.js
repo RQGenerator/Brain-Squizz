@@ -7,24 +7,28 @@ import { FastForwardOutlined, PauseOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import ProgressBar from './ProgressBar'
 
-const Game = ({ completequiz, setShowScore }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
+const Game = ({ completequiz, setShowScore, currentScore, setResult }) => {
+  const [gamePlay, setGameplay] = useState({ timer: 10, currentQuestion: 0 })
   const totalQuestion = completequiz.length
-  const handleAnswer = (key) => {
-    const next = currentQuestion + 1
+  const handleAnswer = (key, answer) => {
+    const next = gamePlay.currentQuestion + 1
+    const updatedResult = [...currentScore]
+    updatedResult.push(answer)
+    setResult(updatedResult)
     if (next < totalQuestion) {
-      setCurrentQuestion(next)
+      setGameplay({ timer: 10, currentQuestion: next })
     } else {
       setShowScore(true)
     }
   }
+  console.log(gamePlay.timer)
   return (
     <GameDiv>
       <TopBar>
         <CountdownCircleTimer
           isPlaying
-          duration={10}
-          size={60}
+          duration={gamePlay.timer}
+          size={40}
           strokeWidth={8}
           colors={[
             ['#00FF00', 0.25],
@@ -32,7 +36,7 @@ const Game = ({ completequiz, setShowScore }) => {
             ['#FFA500', 0.25],
             ['#FF0000'],
           ]}
-          //onComplete={() => alert('too late')}
+          // onComplete={() => handleAnswer(-1)}
         >
           {RenderTime}
         </CountdownCircleTimer>
@@ -45,12 +49,12 @@ const Game = ({ completequiz, setShowScore }) => {
         </Tooltip>
       </TopBar>
       <QuestionDiv
-        details={completequiz[currentQuestion]}
+        details={completequiz[gamePlay.currentQuestion]}
         handleAnswer={handleAnswer}
         totalQuestion={totalQuestion}
       />
       <BottomBar>
-        <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
+        <ProgressBar value={gamePlay.currentQuestion + 1} max={totalQuestion} />
         <Button icon={<FastForwardOutlined />} onClick={handleAnswer}></Button>
       </BottomBar>
     </GameDiv>

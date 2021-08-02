@@ -1,15 +1,21 @@
-import Answers from './Answers'
 import { MainGame } from './QuestionStyle'
-import { FastForwardOutlined } from '@ant-design/icons'
+import './AnswersStyle'
+import { CheckSquareTwoTone } from '@ant-design/icons'
+import { Button } from 'antd'
 
-const QuestionDiv = ({ details, handleAnswer, totalQuestion }) => {
+const QuestionDiv = ({ details, handleAnswer }) => {
   return (
     <MainGame>
-      <p>{details.question}</p>
-      <Answers
-        correct={details.correct_answer}
-        incorrect={details.incorrect_answers}
-      />
+      <p>{details.question.question}</p>
+      {details.answers.map((answer, i) => (
+        <Button
+          icon={answer.isCorrect && <CheckSquareTwoTone />}
+          key={i}
+          onClick={handleAnswer(i)}
+        >
+          {answer.text}
+        </Button>
+      ))}
     </MainGame>
   )
 }

@@ -13,13 +13,11 @@ export const GameDiv = Styled.div`
   flex-direction: column;
 `
 export const TopBar = Styled.div`
-  background-color: grey;
-  padding: 5px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
 `
 export const BottomBar = Styled.div`
-  background-color: grey;
   padding: 5px;
   display: flex;
   justify-content: space-between;
