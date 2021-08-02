@@ -9,16 +9,18 @@ const MenuContainer = styled.div`
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin : 50px 350px 0px;
-    background-color: aqua;
-   
+    margin: 50px 400px 0px;
+    background: aqua;
+    border-radius: 20px;
    
 `
+
+
 
 const Menu = () => {
     return (
         <MenuContainer>
-            <img src="/src/images/idea-5393862_640.png " alt="logo" />
+
             <PlayGameButton />
             <FindAQuizz />
             <Credits />
