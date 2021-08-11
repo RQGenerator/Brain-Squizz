@@ -1,4 +1,3 @@
-// import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import Menu from './components/Menu'
 import { createGlobalStyle } from 'styled-components'
 
