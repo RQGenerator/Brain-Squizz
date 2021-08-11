@@ -1,14 +1,19 @@
 {
     "extends": "react-app",
-    "plugins": ["prettier"],
+    "plugins": [
+        "prettier"
+    ],
     "rules": {
-      "prettier/prettier": "error",
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-filename-extension": [
+        "prettier/prettier": 0,
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [".js", ".jsx"]
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
             }
         ]
     }
-  }
+}
