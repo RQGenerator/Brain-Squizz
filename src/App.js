@@ -1,22 +1,28 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import Menu from './components/Menu'
-import { createGlobalStyle } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-
-body {background: linear-gradient(116.61deg, #7F7FD5 4.28%, #8399E0 43.97%, #85A1E4 47.94%, #85A1E4 59.51%, #86A8E7 68.14%, #91EAE4 97.04%)}`
+import Game from './components/Game'
+import Splash from './components/Splash'
 
 const App = () => {
-  const startGame = () => {
-    alert('start a game')
-  }
+  const [start, setStart] = useState(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setStart(true)
+    }, 5000)
+  }, [])
 
   return (
-    <div>
-      <div>
-        <GlobalStyle />
-        <Menu startGame={startGame} />
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          {start ? <Menu /> : <Splash />}
+        </Route>
+        <Route path="/game" exact>
+          <Game />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 

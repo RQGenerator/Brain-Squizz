@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 // padding: 4px 30px;
 const PlayGame = styled.button`
@@ -25,8 +26,12 @@ width: 30%;
 
 `
 
-const PlayGameButton = ({ startGame }) => {
-  return <PlayGame onClick={startGame}>Play a Game</PlayGame>
+const PlayGameButton = () => {
+  return (
+    <PlayGame>
+      <Link to="/game">Play a Game</Link>
+    </PlayGame>
+  )
 }
 
 export default PlayGameButton
