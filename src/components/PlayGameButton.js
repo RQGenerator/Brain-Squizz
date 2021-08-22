@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components'
 
-
 // padding: 4px 30px;
 const PlayGame = styled.button`
 box - shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -26,9 +25,8 @@ width: 30%;
 
 `
 
-
-const PlayGameButton = () => {
-    return <PlayGame >Play a Game</PlayGame>
+const PlayGameButton = ({ startGame }) => {
+  return <PlayGame onClick={startGame}>Play a Game</PlayGame>
 }
 
 export default PlayGameButton
