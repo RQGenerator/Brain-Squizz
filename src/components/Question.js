@@ -11,7 +11,9 @@ const QuestionDiv = ({ details, handleAnswer }) => {
         <Button
           icon={answer.isCorrect && <CheckSquareTwoTone />}
           key={i}
-          onClick={handleAnswer(i)}
+          onClick={() => {
+            handleAnswer(i)
+          }}
         >
           {answer.text}
         </Button>

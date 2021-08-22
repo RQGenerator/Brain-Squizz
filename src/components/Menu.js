@@ -20,10 +20,10 @@ const MenuContainer = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding: 150px 0px 0px;
+  padding: 0px 0px 0px;
 
   @media (max-width: 750px) {
-    padding: 150px 50px 0px;
+    padding: 0px 50px 0px;
   }
 `
 
