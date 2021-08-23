@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from "styled-components"
-import DevelopedBy from "../images/DevelopedBy.001.png"
+import DevelopedBy from "../components/images/DevelopedBy.001.png"
+
 
 const Container = Styled.fieldset`
 
@@ -25,12 +26,16 @@ border-radius: 10px;
 background-color: white;
 `
 
+const ImageLeaderBoard = Styled.img`
+width: 50%;
+`
+
 const Credits = () => {
     return (
         <div>
             <Container>
                 <TitleLegend>
-                    <ImageLeaderBoard src="../images/DevelopedBy.001.png" alt="leaderboard" />
+                    <ImageLeaderBoard src={"DevelopedBy"} alt="leaderboard" />
                 </TitleLegend>
             </Container>
         </div>
