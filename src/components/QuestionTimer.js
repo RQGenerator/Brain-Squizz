@@ -1,7 +1,15 @@
 const RenderTime = ({ remainingTime }) => {
   return (
     <div>
-      <p style={{ fontSize: 10, fontWeight: 600, margin: 0, paddingBottom: 3 }}>
+      <p
+        style={{
+          fontFamily: 'Montserrat',
+          fontSize: 18,
+          fontWeight: 600,
+          margin: 0,
+          paddingBottom: 0,
+        }}
+      >
         {remainingTime}
       </p>
     </div>
