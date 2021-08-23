@@ -43,7 +43,7 @@ const MenuButtonsContainer = styled.div`
   align-items: center;
 `
 
-const Menu = ({ startGame }) => {
+const Menu = () => {
   return (
     <Container>
       <MenuContainer>
@@ -51,7 +51,7 @@ const Menu = ({ startGame }) => {
           <Logoo src={logo} alt="logo" />
         </LogoContainer>
         <MenuButtonsContainer>
-          <PlayGameButton startGame={startGame} />
+          <PlayGameButton />
           <FindAQuizz />
           <Credits />
         </MenuButtonsContainer>
