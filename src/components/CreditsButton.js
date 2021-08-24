@@ -1,14 +1,16 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components'
+import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const Creditss = styled.button`
+const Creditss = Styled.button`
 box - shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 30px;
 background: #498FF5;
 font-size: 20px;
 margin: 0px 0px 30px;
 width: 30%;
+a:link {
+    color: green;}
 
 @media (max-width: 520px) {
     font-size: 15px;   
@@ -20,11 +22,14 @@ width: 30%;
 
 }
 `
+const LinkCredits = Styled(Link)`
+color: black;
+`
 
 const CreditsButton = () => {
     return (
         <Creditss>
-            <Link to="/credits">Credits</Link>
+            <LinkCredits to="/credits">Credits</LinkCredits>
         </Creditss>
 
     )

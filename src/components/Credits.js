@@ -4,7 +4,7 @@ import developedBy from "../components/images/DevelopedBy.001.png"
 import linkedinLogo from "../components/images/LI-Logo.png"
 import githubLogo from "../components/images/GitHub-Mark-32px.png"
 import { Link } from 'react-router-dom'
-import closeButton from "../components/images/VectorClose.png"
+import VectorBack from "../components/images/VectorBack.png"
 
 
 const Container = Styled.fieldset`
@@ -68,8 +68,17 @@ padding: 30px 0px;
 `
 
 const ButtonBackHome = Styled.button`
-background:url(../components/images/VectorClose.png)
-  
+background: rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+padding: 10px 20xpx;
+`
+
+
+
+
+
+const ButtonImage = Styled.img`
+width: 16px;
 `
 
 const Credits = () => {
@@ -101,7 +110,7 @@ const Credits = () => {
                 </Box2>
                 <div>
                     <ButtonBackHome>
-                        <Link to="/">Home</Link>
+                        <Link to="/"> <ButtonImage src={VectorBack} alt="VectorBack" /></Link>
                     </ButtonBackHome>
                 </div>
 

@@ -20,16 +20,16 @@ width: 30%;
     font-size: 10px;
 
 }
+`
 
-
-    
-
+const LinkGame = styled(Link)`
+color: black;
 `
 
 const PlayGameButton = () => {
   return (
     <PlayGame>
-      <Link to="/game">Play a Game</Link>
+      <LinkGame to="/game">Play a Game</LinkGame>
     </PlayGame>
   )
 }
