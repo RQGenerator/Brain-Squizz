@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from "styled-components"
-import DevelopedBy from "../components/images/DevelopedBy.001.png"
+import developedBy from "../components/images/DevelopedBy.001.png"
+import linkedinLogo from "../components/images/LI-Logo.png"
 
 
 const Container = Styled.fieldset`
@@ -27,7 +28,35 @@ background-color: white;
 `
 
 const ImageLeaderBoard = Styled.img`
-width: 50%;
+width: 40%;
+`
+const Box1 = Styled.div`
+display: flex;
+flex-direction: column;
+    align-items: center;
+padding: 20px 0px;
+`
+
+const Box2 = Styled.div`
+display: flex;
+justify-content: center;
+padding: 30px 0px 0px;
+`
+
+const Linkedin = Styled.img`
+    width: 60px;
+    filter: contrast(4);
+    text-align: center;
+
+`
+
+const SubBox2 = Styled.div`
+display: flex;
+justify-content: center;
+`
+const SubBox1 = Styled.div`
+
+padding: 30px 0px;
 `
 
 const Credits = () => {
@@ -35,8 +64,26 @@ const Credits = () => {
         <div>
             <Container>
                 <TitleLegend>
-                    <ImageLeaderBoard src={"DevelopedBy"} alt="leaderboard" />
+                    <ImageLeaderBoard src={developedBy} alt="leaderboard" />
                 </TitleLegend>
+                <Box1>
+                    <SubBox1>
+                        <h2>Guilherme Rodrigues</h2>
+                        <SubBox2>
+                            <a href="https://ie.linkedin.com/in/guilherme-rodrigues-029344162" rel="noreferrer"> <Linkedin src={linkedinLogo} alt="linkedinLogo" /> </a>
+                        </SubBox2>
+                    </SubBox1>
+                    <SubBox1>
+                        <h2>Victor Isidoro</h2>
+                        <SubBox2>
+                            <a href="https://www.linkedin.com/in/victorisidoro/" rel="noreferrer"> <Linkedin src={linkedinLogo} alt="linkedinLogo" /> </a>
+                        </SubBox2>
+                    </SubBox1>
+                </Box1>
+                <Box2>
+                    <p>Web Developer Students from Wild Code School </p>
+                </Box2>
+
             </Container>
         </div>
     )
