@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Menu from './components/Menu'
 import Game from './components/Game'
 import Splash from './components/Splash'
+import Credits from './components/Credits'
 
 const App = () => {
   const [start, setStart] = useState(false)
@@ -20,6 +21,9 @@ const App = () => {
         </Route>
         <Route path="/game" exact>
           <Game />
+        </Route>
+        <Route path="/credits" exact >
+          <Credits />
         </Route>
       </Switch>
     </Router>

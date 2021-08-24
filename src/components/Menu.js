@@ -3,7 +3,7 @@ import React from 'react'
 import logo from './images/logooo.png'
 import PlayGameButton from './PlayGameButton'
 import FindAQuizz from './FindAQuizz'
-import Credits from './Credits'
+import CreditsButton from './CreditsButton'
 import styled from 'styled-components'
 
 // margin: 50px 400px 0px;
@@ -53,7 +53,7 @@ const Menu = () => {
         <MenuButtonsContainer>
           <PlayGameButton />
           <FindAQuizz />
-          <Credits />
+          <CreditsButton />
         </MenuButtonsContainer>
       </MenuContainer>
     </Container>
