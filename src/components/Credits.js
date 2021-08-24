@@ -2,6 +2,9 @@ import React from 'react'
 import Styled from "styled-components"
 import developedBy from "../components/images/DevelopedBy.001.png"
 import linkedinLogo from "../components/images/LI-Logo.png"
+import githubLogo from "../components/images/GitHub-Mark-32px.png"
+import { Link } from 'react-router-dom'
+import closeButton from "../components/images/VectorClose.png"
 
 
 const Container = Styled.fieldset`
@@ -20,7 +23,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 `
 
-const TitleLegend = Styled.legend`
+const BoxTitle = Styled.legend`
 text-align: center;
 border: 2px solid #ddd;
 border-radius: 10px;
@@ -50,6 +53,11 @@ const Linkedin = Styled.img`
 
 `
 
+const GitHubLogo = Styled.img`
+padding: 0px 0px 0px 30px;
+width: 55px;
+`
+
 const SubBox2 = Styled.div`
 display: flex;
 justify-content: center;
@@ -59,30 +67,43 @@ const SubBox1 = Styled.div`
 padding: 30px 0px;
 `
 
+const ButtonBackHome = Styled.button`
+background:url(../components/images/VectorClose.png)
+  
+`
+
 const Credits = () => {
     return (
         <div>
             <Container>
-                <TitleLegend>
+
+                <BoxTitle>
                     <ImageLeaderBoard src={developedBy} alt="leaderboard" />
-                </TitleLegend>
+                </BoxTitle>
                 <Box1>
                     <SubBox1>
                         <h2>Guilherme Rodrigues</h2>
                         <SubBox2>
                             <a href="https://ie.linkedin.com/in/guilherme-rodrigues-029344162" rel="noreferrer"> <Linkedin src={linkedinLogo} alt="linkedinLogo" /> </a>
+                            <a href="https://github.com/Guilhaxr" rel="noreferrer"> <GitHubLogo src={githubLogo} alt="githubLogo" /> </a>
                         </SubBox2>
                     </SubBox1>
                     <SubBox1>
                         <h2>Victor Isidoro</h2>
                         <SubBox2>
                             <a href="https://www.linkedin.com/in/victorisidoro/" rel="noreferrer"> <Linkedin src={linkedinLogo} alt="linkedinLogo" /> </a>
+                            <a href="https://github.com/vtr84" rel="noreferrer"> <GitHubLogo src={githubLogo} alt="githubLogo" /> </a>
                         </SubBox2>
                     </SubBox1>
                 </Box1>
                 <Box2>
                     <p>Web Developer Students from Wild Code School </p>
                 </Box2>
+                <div>
+                    <ButtonBackHome>
+                        <Link to="/">Home</Link>
+                    </ButtonBackHome>
+                </div>
 
             </Container>
         </div>
