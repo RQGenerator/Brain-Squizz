@@ -20,15 +20,3 @@ export const TopBar = Styled.div`
 export const BottomBar = Styled.div`
   padding: 5px;
 `
-
-export const skipStart = ' background-color: #018E42 '
-
-export const skipOne = Styled.div`
-color: #F7D002;
-`
-export const skipTwo = Styled.div`
-color: #FFA500;
-`
-export const skipThree = Styled.div`
-color: #BF1A2F;
-`
