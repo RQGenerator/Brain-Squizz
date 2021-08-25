@@ -14,8 +14,20 @@ const Game = () => {
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [isPlaying, setIsPlaying] = useState(true)
+  const [skipCount, setSkipCount] = useState(0)
   const [result, setResult] = useState([])
-
+  const skipInfo = [
+    { class: 'bg-green-200 hover:bg-green-500', text: '3 Skips available' },
+    { class: 'bg-yellow-200 hover:bg-yellow-500', text: '2 Skips available' },
+    {
+      class: 'bg-red-200 hover:bg-red-500',
+      text: 'Only 1 more skip available',
+    },
+    {
+      class: 'bg-gray-500 opacity-50 cursor-not-allowed',
+      text: 'No more skip available',
+    },
+  ]
   useEffect(() => {
     axios
       .get('https://opentdb.com/api.php?amount=10')
@@ -63,7 +75,12 @@ const Game = () => {
       setLoading(true)
     }
   }
-
+  const skip = () => {
+    if (skipCount < 3) {
+      setSkipCount(skipCount + 1)
+      handleAnswer()
+    }
+  }
   return (
     <>
       {loading ? (
@@ -102,10 +119,28 @@ const Game = () => {
           />
           <BottomBar>
             <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
-            <Button
-              icon={<FastForwardOutlined />}
-              onClick={handleAnswer}
-            ></Button>
+            <button
+              onClick={skip}
+              className={`has-tooltip flex items-center p-3 rounded-full shadow-xs cursor-pointer hover:text-gray-100 ${skipInfo[skipCount].class}`}
+            >
+              <span class="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-14">
+                {skipInfo[skipCount].text}
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </BottomBar>
         </GameDiv>
       )}
