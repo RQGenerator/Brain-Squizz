@@ -5,7 +5,15 @@ import { FastForwardOutlined, PauseOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
-import { GameDiv, TopBar, BottomBar } from './GameStyle'
+import {
+  GameDiv,
+  TopBar,
+  BottomBar,
+  skipStart,
+  skipOne,
+  skipTwo,
+  skipThree,
+} from './GameStyle'
 import ProgressBar from './ProgressBar'
 import QuestionDiv from './Question'
 
@@ -14,8 +22,10 @@ const Game = () => {
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [isPlaying, setIsPlaying] = useState(true)
+  const [skipCount, setSkipCount] = useState(0)
   const [result, setResult] = useState([])
-
+  let skipClass = 'skipStart'
+  let skipOption = false
   useEffect(() => {
     axios
       .get('https://opentdb.com/api.php?amount=10')
@@ -63,7 +73,7 @@ const Game = () => {
       setLoading(true)
     }
   }
-
+  const skip = () => {}
   return (
     <>
       {loading ? (
@@ -103,8 +113,12 @@ const Game = () => {
           <BottomBar>
             <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
             <Button
+              shape="circle"
+              size="large"
               icon={<FastForwardOutlined />}
-              onClick={handleAnswer}
+              onClick={skip}
+              className={skipClass}
+              disabled={skipOption}
             ></Button>
           </BottomBar>
         </GameDiv>
