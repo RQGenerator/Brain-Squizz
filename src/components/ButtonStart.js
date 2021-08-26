@@ -1,17 +1,20 @@
 import styled from 'styled-components'
 import { Button2 } from './styles'
+import Game from './Game'
+import { Link } from 'react-router-dom'
 
 
 
-const ButtonStart = ({ pauseGame }) => {
+const ButtonStart = () => {
+
 
     return (
         <div>
             <Button2
-                onClick={pauseGame}>
-                Start
+            >
+                <Link to="/game">Ready?</Link>
             </Button2>
-        </div>
+        </div >
     )
 }
 

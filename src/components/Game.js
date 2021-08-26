@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { data } from '../data'
-import { FastForwardOutlined, PauseOutlined } from '@ant-design/icons'
+import { FastForwardOutlined, PauseOutlined, QuestionOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
@@ -9,7 +9,9 @@ import { GameDiv, TopBar, BottomBar } from './GameStyle'
 import ProgressBar from './ProgressBar'
 import QuestionDiv from './Question'
 
+
 const Game = () => {
+  const [displayInstructions, setDisplayInstructions] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
@@ -63,6 +65,9 @@ const Game = () => {
         setLoading(false)
       })
   }, [])
+  const noDisplay = {
+    display: "none"
+  }
 
   const totalQuestion = quiz.length
   const handleAnswer = (key, answer) => {
@@ -83,10 +88,12 @@ const Game = () => {
   }
   return (
     <>
+
       {loading ? (
         'Loading'
       ) : (
-        <GameDiv>
+
+        <GameDiv >
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -110,7 +117,13 @@ const Game = () => {
                 icon={<PauseOutlined />}
                 onClick={() => setIsPlaying(!isPlaying)}
               />
+
             </Tooltip>
+            <Button
+              shape="circle"
+              icon={< QuestionOutlined />}
+              onClick={() => [setDisplayInstructions(!displayInstructions), setIsPlaying(!isPlaying)]}
+            />
           </TopBar>
           <QuestionDiv
             details={quiz[currentQuestion]}
@@ -144,6 +157,10 @@ const Game = () => {
           </BottomBar>
         </GameDiv>
       )}
+
+
+
+
     </>
   )
 }
