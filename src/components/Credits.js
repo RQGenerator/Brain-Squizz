@@ -24,6 +24,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 const BoxTitle = Styled.legend`
+display: flex;
+justify-content: center;
 text-align: center;
 border: 2px solid #ddd;
 border-radius: 10px;
@@ -50,17 +52,19 @@ const Linkedin = Styled.img`
     width: 60px;
     filter: contrast(4);
     text-align: center;
+    padding: 10px 0px 0px ;
 
 `
 
 const GitHubLogo = Styled.img`
 padding: 0px 0px 0px 30px;
-width: 55px;
+width: 60px;
 `
 
 const SubBox2 = Styled.div`
 display: flex;
 justify-content: center;
+padding: 15px 0px;
 `
 const SubBox1 = Styled.div`
 
