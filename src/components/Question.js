@@ -12,7 +12,7 @@ const QuestionDiv = ({ details, handleAnswer }) => {
           icon={answer.isCorrect && <CheckSquareTwoTone />}
           key={i}
           onClick={() => {
-            handleAnswer(i)
+            handleAnswer(1, answer.isCorrect)
           }}
         >
           {answer.text}

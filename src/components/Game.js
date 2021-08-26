@@ -30,7 +30,7 @@ const Game = () => {
   const [quiz, setQuiz] = useState([])
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
-  // const [result, setResult] = useState([])
+  const [result, setResult] = useState([])
   const skipInfo = [
     { class: 'bg-green-200 hover:bg-green-500', text: '3 Skips available' },
     { class: 'bg-yellow-200 hover:bg-yellow-500', text: '2 Skips available' },
@@ -82,10 +82,10 @@ const Game = () => {
   }, [])
 
   const totalQuestion = quiz.length
-  const handleAnswer = (key, answer) => {
+  const handleAnswer = (time, answer) => {
     const next = currentQuestion + 1
-    // const updatedResult = [...result, false]
-    // setResult(updatedResult)
+    const updatedResult = [...result, { time: time, isCorrect: answer }]
+    setResult(updatedResult)
     if (next < totalQuestion) {
       setCurrentQuestion(next)
     } else {
@@ -95,7 +95,7 @@ const Game = () => {
   const skip = () => {
     if (skipCount < 3) {
       setSkipCount(skipCount + 1)
-      handleAnswer()
+      handleAnswer(-1, false)
     }
   }
   return (
@@ -134,7 +134,7 @@ const Game = () => {
                 ['#FFA500', 0.25],
                 ['#BF1A2F'],
               ]}
-              onComplete={() => handleAnswer()}
+              onComplete={() => handleAnswer(0, false)}
             >
               {RenderTime}
             </CountdownCircleTimer>
