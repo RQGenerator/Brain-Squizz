@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { data } from '../data'
-import { FastForwardOutlined, PauseOutlined } from '@ant-design/icons'
+import { PauseOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
 import { GameDiv, TopBar, BottomBar } from './GameStyle'
 import ProgressBar from './ProgressBar'
 import QuestionDiv from './Question'
+import LoadingSpinner from './Loading'
+import CountDownTimer from './CountDown'
 
 const Game = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [countDown, setCountDown] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
@@ -84,7 +87,24 @@ const Game = () => {
   return (
     <>
       {loading ? (
-        'Loading'
+        <LoadingSpinner />
+      ) : countDown ? (
+        <div className="timer-wrapper">
+          <CountdownCircleTimer
+            isPlaying
+            duration={4}
+            size={180}
+            strokeWidth={8}
+            onComplete={() => setCountDown(false)}
+            colors={[
+              ['#018E42', 0.6],
+              ['#FFA500', 0.2],
+              ['#ed1b72', 0.2],
+            ]}
+          >
+            <CountDownTimer setCountDown={setCountDown} />
+          </CountdownCircleTimer>
+        </div>
       ) : (
         <GameDiv>
           <TopBar>
@@ -100,7 +120,7 @@ const Game = () => {
                 ['#FFA500', 0.25],
                 ['#BF1A2F'],
               ]}
-              onComplete={() => handleAnswer(-1)}
+              onComplete={() => handleAnswer()}
             >
               {RenderTime}
             </CountdownCircleTimer>
