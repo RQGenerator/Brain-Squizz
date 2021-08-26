@@ -10,6 +10,7 @@ import ProgressBar from './ProgressBar'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
+import Instructions from "./Instructions"
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -25,7 +26,7 @@ const shuffle = (array) => {
 
 
 const Game = () => {
-  const [displayInstructions, setDisplayInstructions] = useState(true)
+  const [displayButton, setDisplayButton] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [countDown, setCountDown] = useState(true)
@@ -85,7 +86,13 @@ const Game = () => {
   const noDisplay = {
     display: "none"
   }
+  const handleChangeButton = () => {
+    setDisplayButton(!displayButton)
+  }
 
+  const handleChange = () => {
+    setIsPlaying(!isPlaying)
+  }
   const totalQuestion = quiz.length
   const handleAnswer = (time, answer) => {
     const next = currentQuestion + 1
@@ -127,7 +134,7 @@ const Game = () => {
         </div>
       ) : (
 
-        <GameDiv >
+        <GameDiv style={!isPlaying ? noDisplay : null} >
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -149,7 +156,7 @@ const Game = () => {
               <Button
                 shape="circle"
                 icon={<PauseOutlined />}
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={() => [handleChange(), handleChangeButton]}
               />
 
             </Tooltip>
@@ -187,10 +194,7 @@ const Game = () => {
           </BottomBar>
         </GameDiv>
       )}
-
-
-
-
+      {!isPlaying ? <Instructions handleChange={handleChange} handleChangeButton={handleChangeButton} /> : null}
     </>
   )
 }
