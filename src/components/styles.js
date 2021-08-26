@@ -5,10 +5,14 @@ export const Title = styled.h1`
   margin-top: 35px;
   background: #d8d9e8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  border-radius: 44px;
   padding: 20px 0px;
   justify-content: center;
   display: flex;
+  font-size: 30px;
+`
+export const BoxTitle = styled.div`
+padding : 0px 100px;
 `
 
 export const Container = styled.div`
@@ -22,6 +26,7 @@ export const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding : 30px 0px ;
   @media (max-width: 950px) {
     flex-direction: column;
   }
@@ -100,7 +105,6 @@ export const BoxAnswer2 = styled.div`
 
 export const Answer1 = styled.div`
 background-color: white;
-border-right-width: 20px;
 padding: 20px 20px;
 margin-right: 30px;
 margin-bottom: 20px;
@@ -111,7 +115,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 export const Answer2 = styled.div`
 background-color: white;
-border-right-width: 20px;
 padding: 20px 20px;
 margin-right: 30px;
 margin-bottom: 20px;
@@ -122,7 +125,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 export const Answer3 = styled.div`
 background-color: white;
-border-right-width: 20px;
 padding: 20px 20px;
 margin-right: 30px;
 margin-bottom: 20px;
@@ -133,7 +135,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 export const Answer4 = styled.div`
 background-color: white;
-border-right-width: 20px;
 padding: 20px 20px;
 margin-right: 30px;
 margin-bottom: 20px;
@@ -146,4 +147,12 @@ export const Button2 = styled.button`
   background: #00ffff;
   border-radius: 14px;
   padding: 4px 30px;
+`
+export const LogoImg = styled.img`
+  width: 340px;
+  margin: 30px 0px 0px;
+`
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `

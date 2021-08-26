@@ -23,7 +23,9 @@ const shuffle = (array) => {
   return array
 }
 
+
 const Game = () => {
+  const [displayInstructions, setDisplayInstructions] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [countDown, setCountDown] = useState(true)
@@ -80,6 +82,9 @@ const Game = () => {
         setLoading(false)
       })
   }, [])
+  const noDisplay = {
+    display: "none"
+  }
 
   const totalQuestion = quiz.length
   const handleAnswer = (time, answer) => {
@@ -100,6 +105,7 @@ const Game = () => {
   }
   return (
     <>
+
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -120,7 +126,8 @@ const Game = () => {
           </CountdownCircleTimer>
         </div>
       ) : (
-        <GameDiv>
+
+        <GameDiv >
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -144,6 +151,7 @@ const Game = () => {
                 icon={<PauseOutlined />}
                 onClick={() => setIsPlaying(!isPlaying)}
               />
+
             </Tooltip>
           </TopBar>
           <QuestionDiv
@@ -178,6 +186,10 @@ const Game = () => {
           </BottomBar>
         </GameDiv>
       )}
+
+
+
+
     </>
   )
 }
