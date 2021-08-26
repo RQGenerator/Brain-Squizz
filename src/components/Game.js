@@ -8,10 +8,11 @@ import RenderTime from './QuestionTimer'
 import { GameDiv, TopBar, BottomBar } from './GameStyle'
 import ProgressBar from './ProgressBar'
 import QuestionDiv from './Question'
+import Instructions from "./Instructions"
 
 
 const Game = () => {
-  const [displayInstructions, setDisplayInstructions] = useState(true)
+  const [displayButton, setDisplayButton] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
@@ -68,7 +69,13 @@ const Game = () => {
   const noDisplay = {
     display: "none"
   }
+  const handleChangeButton = () => {
+    setDisplayButton(!displayButton)
+  }
 
+  const handleChange = () => {
+    setIsPlaying(!isPlaying)
+  }
   const totalQuestion = quiz.length
   const handleAnswer = (key, answer) => {
     const next = currentQuestion + 1
@@ -93,7 +100,7 @@ const Game = () => {
         'Loading'
       ) : (
 
-        <GameDiv >
+        <GameDiv style={!isPlaying ? noDisplay : null} >
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -115,15 +122,10 @@ const Game = () => {
               <Button
                 shape="circle"
                 icon={<PauseOutlined />}
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={() => [handleChange(), handleChangeButton]}
               />
 
             </Tooltip>
-            <Button
-              shape="circle"
-              icon={< QuestionOutlined />}
-              onClick={() => [setDisplayInstructions(!displayInstructions), setIsPlaying(!isPlaying)]}
-            />
           </TopBar>
           <QuestionDiv
             details={quiz[currentQuestion]}
@@ -158,6 +160,8 @@ const Game = () => {
           </BottomBar>
         </GameDiv>
       )}
+
+      {!isPlaying ? <Instructions handleChange={handleChange} handleChangeButton={handleChangeButton} /> : null}
 
 
 

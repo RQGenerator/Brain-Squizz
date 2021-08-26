@@ -3,7 +3,7 @@ import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Creditss = Styled.button`
-box - shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 30px;
 background: #498FF5;
 font-size: 20px;
