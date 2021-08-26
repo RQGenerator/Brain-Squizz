@@ -1,11 +1,10 @@
-import { Spin, Space } from 'antd'
+import './Loading.css'
 
 const LoadingSpinner = () => (
-  <Space size="middle">
-    <Spin size="small" />
-    <Spin />
-    <Spin size="large" />
-  </Space>
+  <div>
+    <div class="loader"></div>
+    Loading ...
+  </div>
 )
 
 export default LoadingSpinner
