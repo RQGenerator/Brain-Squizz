@@ -1,11 +1,10 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import './CountDown.css'
 
 const CountDown = ({ remainingTime, setCountDown }) => {
   const currentTime = useRef(remainingTime)
   const prevTime = useRef(null)
   const isNewTimeFirstTick = useRef(false)
-  const [, setOneLastRerender] = useState(0)
 
   if (currentTime.current !== remainingTime) {
     isNewTimeFirstTick.current = true
@@ -13,13 +12,6 @@ const CountDown = ({ remainingTime, setCountDown }) => {
     currentTime.current = remainingTime
   } else {
     isNewTimeFirstTick.current = false
-  }
-
-  // force one last re-render when the time is over to tirgger the last animation
-  if (remainingTime === 0) {
-    setTimeout(() => {
-      setOneLastRerender((val) => val + 1)
-    }, 20)
   }
 
   const isTimeUp = isNewTimeFirstTick.current

@@ -2,8 +2,8 @@ import './Loading.css'
 
 const LoadingSpinner = () => (
   <div>
-    <div class="loader"></div>
-    <div class="loading">Loading ...</div>
+    <div className="loader"></div>
+    <div className="loading">Loading ...</div>
   </div>
 )
 
