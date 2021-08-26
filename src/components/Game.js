@@ -94,13 +94,12 @@ const Game = () => {
             isPlaying
             duration={4}
             size={180}
-            strokeWidth={4}
+            strokeWidth={8}
             onComplete={() => setCountDown(false)}
             colors={[
-              ['#018E42', 0, 25],
-              ['#018E42', 0.25],
-              ['#FFA500', 0.25],
-              ['#ed1b72', 0.25],
+              ['#018E42', 0.6],
+              ['#FFA500', 0.2],
+              ['#ed1b72', 0.2],
             ]}
           >
             <CountDownTimer setCountDown={setCountDown} />
