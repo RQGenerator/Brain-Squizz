@@ -159,6 +159,7 @@ const Game = () => {
             handleAnswer={handleAnswer}
             totalQuestion={totalQuestion}
           />
+          { }
           <BottomBar>
             <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
             <button
