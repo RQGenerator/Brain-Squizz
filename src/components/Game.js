@@ -93,7 +93,15 @@ const Game = () => {
           <CountdownCircleTimer
             isPlaying
             duration={4}
-            colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
+            size={180}
+            strokeWidth={4}
+            onComplete={() => setCountDown(false)}
+            colors={[
+              ['#018E42', 0, 25],
+              ['#018E42', 0.25],
+              ['#FFA500', 0.25],
+              ['#ed1b72', 0.25],
+            ]}
           >
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>

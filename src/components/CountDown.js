@@ -23,13 +23,7 @@ const CountDown = ({ remainingTime, setCountDown }) => {
   }
 
   const isTimeUp = isNewTimeFirstTick.current
-  if (remainingTime === 0) {
-    setTimeout(() => {
-      setOneLastRerender((val) => val + 1)
-    }, 20)
-    return <div>Go</div>
-    // setCountDown(false)
-  } else if (remainingTime === 4) {
+  if (remainingTime === 4) {
     return (
       <div className="time-wrapper">
         <div key={remainingTime} className={`time ${isTimeUp ? 'up' : ''}`}>
