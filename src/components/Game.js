@@ -11,6 +11,18 @@ import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 
+const shuffle = (array) => {
+  let currentIndex = array.length
+  while (currentIndex !== 0) {
+    let randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+    let tempValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = tempValue
+  }
+  return array
+}
+
 const Game = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -18,7 +30,7 @@ const Game = () => {
   const [quiz, setQuiz] = useState([])
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
-  const [result, setResult] = useState([])
+  // const [result, setResult] = useState([])
   const skipInfo = [
     { class: 'bg-green-200 hover:bg-green-500', text: '3 Skips available' },
     { class: 'bg-yellow-200 hover:bg-yellow-500', text: '2 Skips available' },
@@ -44,6 +56,7 @@ const Game = () => {
           question.incorrect_answers.forEach((wrongAnswer) =>
             answers.push({ text: wrongAnswer, isCorrect: false })
           )
+          shuffle(answers)
           return { question, answers }
         })
         setQuiz(quizTemp)
@@ -60,6 +73,7 @@ const Game = () => {
           question.incorrect_answers.forEach((wrongAnswer) =>
             answers.push({ text: wrongAnswer, isCorrect: false })
           )
+          shuffle(answers)
           return { question, answers }
         })
         setQuiz(quizTemp)
@@ -143,7 +157,7 @@ const Game = () => {
               onClick={skip}
               className={`has-tooltip flex items-center p-3 rounded-full shadow-xs cursor-pointer hover:text-gray-100 ${skipInfo[skipCount].class}`}
             >
-              <span class="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-14">
+              <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-14">
                 {skipInfo[skipCount].text}
               </span>
               <svg
