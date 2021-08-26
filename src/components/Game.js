@@ -26,7 +26,10 @@ const shuffle = (array) => {
 }
 
 
+
 const Game = () => {
+  const [displayInstructions, setDisplayInstructions] = useState(true)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [countDown, setCountDown] = useState(true)
@@ -88,9 +91,6 @@ const Game = () => {
   }, [])
   const noDisplay = {
     display: "none"
-  }
-  const handleChangeButton = () => {
-    setDisplayButton(!displayButton)
   }
 
   const handleAnswer = (where, answer) => {
@@ -164,6 +164,11 @@ const Game = () => {
               />
 
             </Tooltip>
+            <Button
+              shape="circle"
+              icon={< QuestionOutlined />}
+              onClick={() => [setDisplayInstructions(!displayInstructions), setIsPlaying(!isPlaying)]}
+            />
           </TopBar>
           <QuestionDiv
             details={quiz[currentQuestion]}

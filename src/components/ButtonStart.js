@@ -5,15 +5,13 @@ import { Link } from 'react-router-dom'
 
 
 
-const ButtonStart = ({ handleChangeButton }) => {
-    const noDisplay = {
-        display: "none"
-    }
+const ButtonStart = () => {
 
 
     return (
         <div>
-            <Button2 style={handleChangeButton ? noDisplay : null}>
+            <Button2
+            >
                 <Link to="/game">Ready?</Link>
             </Button2>
         </div >
