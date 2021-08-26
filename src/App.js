@@ -24,7 +24,7 @@ const App = () => {
           <Game />
         </Route>
         <Route path="/instructions" exact >
-          <Instructions />
+          <Instructions isPlaying={false} />
         </Route>
         <Route path="/credits" exact >
           <Credits />
