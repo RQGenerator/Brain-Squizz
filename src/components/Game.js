@@ -88,9 +88,6 @@ const Game = () => {
   const noDisplay = {
     display: 'none',
   }
-  const handleChangeButton = () => {
-    setDisplayButton(!displayButton)
-  }
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
