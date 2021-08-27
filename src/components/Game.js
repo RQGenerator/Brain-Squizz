@@ -26,10 +26,11 @@ const shuffle = (array) => {
 }
 
 const Game = () => {
+  const [displayButton, setDisplayButton] = useState(true)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [countDown, setCountDown] = useState(true)
-  const [currentQuestion, setCurrentQuestion] = useState(0)
   const totalQuestion = quiz.length
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
