@@ -19,6 +19,9 @@ import {
   LogoImg,
   LogoContainer,
   BoxTitle,
+  Button2,
+  ButtonReady,
+  ButtonExit
 } from './styles'
 import logoName from './images/logoName.png'
 
@@ -71,22 +74,24 @@ const Instructions = ({
           </Text>
 
           {!isPlaying ? (
-            <LinkGame to="/game">Play a Game</LinkGame>
+            <ButtonReady to="/game">Play a Game</ButtonReady>
           ) : (
-            <div>
-              <button
-                className="flex items-center p-3 rounded-lg shadow-xs cursor-pointer bg-green-200 hover:bg-green-500 hover:text-gray-100 "
+            <div className={'flex items-center'}>
+              <Button2
+
+
                 onClick={() => setIsPlaying(true)}
               >
                 Back to the Game
-              </button>
+              </Button2>
               <br />
-              <LinkGame to="/">Exit this game</LinkGame>
+              <ButtonExit to="/">Exit this game</ButtonExit>
+
             </div>
           )}
         </Right>
       </Box>
-    </Container>
+    </Container >
   )
 }
 
