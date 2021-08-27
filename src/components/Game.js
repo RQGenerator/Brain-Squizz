@@ -11,6 +11,7 @@ import SkipButton from './SkipButton'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
+import Instructions from './Instructions'
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -87,6 +88,9 @@ const Game = () => {
   const noDisplay = {
     display: 'none',
   }
+  const handleChangeButton = () => {
+    setDisplayButton(!displayButton)
+  }
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -132,7 +136,7 @@ const Game = () => {
           </CountdownCircleTimer>
         </div>
       ) : currentQuestion !== -1 ? (
-        <GameDiv>
+        <GameDiv style={!isPlaying ? noDisplay : null}>
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -154,7 +158,7 @@ const Game = () => {
               <Button
                 shape="circle"
                 icon={<PauseOutlined />}
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={() => [handleChange(), handleChangeButton]}
               />
             </Tooltip>
           </TopBar>
