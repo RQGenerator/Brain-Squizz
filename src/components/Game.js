@@ -11,6 +11,7 @@ import SkipButton from './SkipButton'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
+import Instructions from './Instructions'
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -25,10 +26,11 @@ const shuffle = (array) => {
 }
 
 const Game = () => {
+  const [displayButton, setDisplayButton] = useState(true)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
   const [countDown, setCountDown] = useState(true)
-  const [currentQuestion, setCurrentQuestion] = useState(0)
   const totalQuestion = quiz.length
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
@@ -84,6 +86,9 @@ const Game = () => {
         setLoading(false)
       })
   }, [])
+  const noDisplay = {
+    display: 'none',
+  }
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -129,7 +134,7 @@ const Game = () => {
           </CountdownCircleTimer>
         </div>
       ) : currentQuestion !== -1 ? (
-        <GameDiv>
+        <GameDiv style={!isPlaying ? noDisplay : null}>
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -189,6 +194,10 @@ const Game = () => {
           </ul>
         </div>
       )}
+
+      {!isPlaying ? (
+        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+      ) : null}
     </>
   )
 }

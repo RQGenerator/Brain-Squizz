@@ -1,18 +1,14 @@
-import styled from 'styled-components'
 import { Button2 } from './styles'
+import { Link } from 'react-router-dom'
 
-
-
-const ButtonStart = ({ pauseGame }) => {
-
-    return (
-        <div>
-            <Button2
-                onClick={pauseGame}>
-                Start
-            </Button2>
-        </div>
-    )
+const ButtonStart = () => {
+  return (
+    <div>
+      <Button2>
+        <Link to="/game">Ready?</Link>
+      </Button2>
+    </div>
+  )
 }
 
-export default ButtonStart;
+export default ButtonStart
