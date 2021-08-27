@@ -88,9 +88,6 @@ const Game = () => {
   const noDisplay = {
     display: 'none',
   }
-  const handleChangeButton = () => {
-    setDisplayButton(!displayButton)
-  }
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -161,6 +158,14 @@ const Game = () => {
                 onClick={() => setIsPlaying(!isPlaying)}
               />
             </Tooltip>
+            <Button
+              shape="circle"
+              icon={<QuestionOutlined />}
+              onClick={() => [
+                setDisplayInstructions(!displayInstructions),
+                setIsPlaying(!isPlaying),
+              ]}
+            />
           </TopBar>
           <QuestionDiv
             details={quiz[currentQuestion]}
