@@ -12,6 +12,8 @@ import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
+const timeLimit = 15
+const bonuses = [1, 1.5, 1.75, 2]
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -26,12 +28,21 @@ const shuffle = (array) => {
 }
 
 const score = (answer) => {
-  let answerPoints = []
+  let answerScore = {}
+  let points = 0
+  let bonus = 1
   if (answer.isCorrect) {
-    answerPoints.push(100)
+    points = 100
   }
-
-  return answerPoints
+  answer.time === 0
+    ? ([points, bonus] = [-20, 1])
+    : answer.time !== -1
+    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+    : (bonus = 0)
+  answerScore.points = points
+  answerScore.bonus = bonus
+  console.log(Math.ceil(answer.time / (timeLimit / 4)) - 1)
+  return answerScore
 }
 
 const totalScore = (results) => {
@@ -62,7 +73,6 @@ const Game = () => {
   ]
   const [answerTime, setAnswerTime] = useState(0)
   const [result, setResult] = useState([])
-  const timeLimit = 15
 
   useEffect(() => {
     axios
@@ -203,7 +213,9 @@ const Game = () => {
           <ul>
             {result.map((answer, i) => (
               <li key={i} id={i}>
-                {answer.time} - {answer.isCorrect ? 'true' : 'false'}
+                {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
+                {score(answer).points} * {score(answer).bonus} ={' '}
+                {score(answer).points * score(answer).bonus}
               </li>
             ))}
           </ul>
