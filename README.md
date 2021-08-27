@@ -112,6 +112,7 @@ See the [open issues](https://github.com/RQGenerator/Brain-Squizz/issues) for a 
 - Challenge friends
 - Soundtrack
 - More challenges
+- Dark theme
 
 <!-- CONTRIBUTING -->
 
