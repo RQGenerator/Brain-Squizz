@@ -17,6 +17,3 @@ export const TopBar = Styled.div`
   display: flex;
   justify-content: space-between;
 `
-export const BottomBar = Styled.div`
-  padding: 5px;
-`
