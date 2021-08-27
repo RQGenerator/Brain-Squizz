@@ -46,8 +46,10 @@ const score = (answer) => {
 }
 
 const totalScore = (results) => {
-  let score = 0
-  return score
+  let totalScore = results
+    .map((answer) => score(answer).points * score(answer).bonus)
+    .reduce((total, value) => total + value, 0)
+  return totalScore
 }
 
 const Game = () => {
@@ -219,6 +221,7 @@ const Game = () => {
               </li>
             ))}
           </ul>
+          {totalScore(result)}
         </div>
       )}
 
