@@ -158,7 +158,7 @@ const Game = () => {
               <Button
                 shape="circle"
                 icon={<PauseOutlined />}
-                onClick={() => [handleChange(), handleChangeButton]}
+                onClick={() => setIsPlaying(!isPlaying)}
               />
             </Tooltip>
           </TopBar>
@@ -196,6 +196,10 @@ const Game = () => {
           </ul>
         </div>
       )}
+
+      {!isPlaying ? (
+        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+      ) : null}
     </>
   )
 }
