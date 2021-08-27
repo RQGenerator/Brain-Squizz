@@ -107,9 +107,11 @@ _[Documentation](https://rqgenerator.github.io/Brain-Squizz/)_
 
 See the [open issues](https://github.com/RQGenerator/Brain-Squizz/issues) for a list of proposed features (and known issues).
 
-\_Save generated quiz
-\_Challenge friends
-\_Soundtrack
+- Customize quiz type, categories and difficulty
+- Save generated quiz
+- Challenge friends
+- Soundtrack
+- More challenges
 
 <!-- CONTRIBUTING -->
 
