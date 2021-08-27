@@ -25,6 +25,20 @@ const shuffle = (array) => {
   return array
 }
 
+const score = (answer) => {
+  let answerPoints = []
+  if (answer.isCorrect) {
+    answerPoints.push(100)
+  }
+
+  return answerPoints
+}
+
+const totalScore = (results) => {
+  let score = 0
+  return score
+}
+
 const Game = () => {
   const [displayButton, setDisplayButton] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -48,6 +62,7 @@ const Game = () => {
   ]
   const [answerTime, setAnswerTime] = useState(0)
   const [result, setResult] = useState([])
+  const timeLimit = 15
 
   useEffect(() => {
     axios
@@ -139,7 +154,7 @@ const Game = () => {
             <CountdownCircleTimer
               key={currentQuestion}
               isPlaying={isPlaying}
-              duration={15}
+              duration={timeLimit}
               size={50}
               strokeWidth={4}
               colors={[
