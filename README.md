@@ -129,9 +129,9 @@ Happy coding 🧑‍💻
 
 ## Contact
 
-Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-grey?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
+Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
 
-Victor Isidoro - [@vtr84](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-grey?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
+Victor Isidoro - [![Twitter Badge](https://img.shields.io/badge/-vtr84-1572B6?style=flat-square&logo=Twitter&logoColor=white&link=https://twitter.com/vtr84)](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-181717?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
 
 Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
 
