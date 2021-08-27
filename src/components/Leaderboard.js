@@ -68,7 +68,7 @@ background-color: white;
 const ImageLeaderBoard = Styled.img`
 width: 50%;
 `
-const LeaderBoard = () => {
+const Leaderboard = () => {
   const playerScore = [
     {
       name: 'Jamal',
@@ -121,4 +121,4 @@ const LeaderBoard = () => {
   )
 }
 
-export default LeaderBoard
+export default Leaderboard

@@ -5,7 +5,7 @@ import Game from './components/Game'
 import Splash from './components/Splash'
 import Credits from './components/Credits'
 import Instructions from './components/Instructions'
-import LeaderBoard from './components/LeaderBoard'
+import Leaderboard from './components/Leaderboard'
 
 const App = () => {
   const [start, setStart] = useState(false)
@@ -28,7 +28,7 @@ const App = () => {
           <Instructions isPlaying={false} />
         </Route>
         <Route path="/leaderboard">
-          <LeaderBoard isPlaying={false} />
+          <Leaderboard isPlaying={false} />
         </Route>
         <Route path="/credits">
           <Credits />
