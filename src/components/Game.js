@@ -1,17 +1,17 @@
 import { data } from '../data'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { PauseOutlined } from '@ant-design/icons'
-import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
-import { GameDiv, TopBar } from './GameStyle'
+import { GameDiv } from './GameStyle'
 import ProgressBar from './ProgressBar'
 import SkipButton from './SkipButton'
+import PauseButton from './PauseButton'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
+import { hidden } from 'chalk'
 const he = require('he')
 const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
@@ -61,14 +61,20 @@ const Game = () => {
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
   const skipInfo = [
-    { class: 'bg-green-200 hover:bg-green-500', text: '3 Skips available' },
-    { class: 'bg-yellow-200 hover:bg-yellow-500', text: '2 Skips available' },
+    {
+      class: 'hover:text-gray-100 bg-green-200 hover:bg-green-500',
+      text: '3 Skips available',
+    },
+    {
+      class: 'hover:text-gray-100 bg-yellow-200 hover:bg-yellow-500',
+      text: '2 Skips available',
+    },
     {
       class: 'bg-red-200 hover:bg-red-500',
       text: 'Only 1 more skip available',
     },
     {
-      class: 'bg-gray-500 opacity-50 cursor-not-allowed',
+      class: 'bg-gray-200 text-gray-100 cursor-not-allowed',
       text: 'No more skip available',
     },
   ]
@@ -112,6 +118,7 @@ const Game = () => {
         setLoading(false)
       })
   }, [])
+
   const noDisplay = {
     display: 'none',
   }
@@ -160,8 +167,12 @@ const Game = () => {
           </CountdownCircleTimer>
         </div>
       ) : currentQuestion !== -1 ? (
-        <GameDiv style={!isPlaying ? noDisplay : null}>
-          <TopBar>
+        <div
+          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
+            !isPlaying ? 'hidden' : ''
+          }`}
+        >
+          <div className="flex p-5 place-content-between">
             <CountdownCircleTimer
               key={currentQuestion}
               isPlaying={isPlaying}
@@ -178,20 +189,14 @@ const Game = () => {
             >
               <RenderTime setAnswerTime={setAnswerTime} />
             </CountdownCircleTimer>
-            <Tooltip title="pause">
-              <Button
-                shape="circle"
-                icon={<PauseOutlined />}
-                onClick={() => setIsPlaying(!isPlaying)}
-              />
-            </Tooltip>
-          </TopBar>
+            <PauseButton isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+          </div>
           <QuestionDiv
             details={quiz[currentQuestion]}
             handleAnswer={handleAnswer}
             totalQuestion={totalQuestion}
           />
-          <div className="flex">
+          <div className="flex p-5">
             <div className="flex-grow pt-5 pr-5">
               <ProgressBar
                 className="flex"
@@ -207,7 +212,7 @@ const Game = () => {
               />
             </div>
           </div>
-        </GameDiv>
+        </div>
       ) : (
         <div>
           Results:
