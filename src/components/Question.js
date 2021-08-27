@@ -5,7 +5,7 @@ import { Button } from 'antd'
 const QuestionDiv = ({ details, handleAnswer }) => {
   return (
     <MainGame>
-      <p>{details.question.question}</p>
+      <p>{details.question}</p>
       {details.answers.map((answer, i) => (
         <Button
           icon={answer.isCorrect && <CheckSquareTwoTone />}
