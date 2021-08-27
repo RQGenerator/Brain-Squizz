@@ -53,7 +53,6 @@ const totalScore = (results) => {
 }
 
 const Game = () => {
-  const [displayButton, setDisplayButton] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])

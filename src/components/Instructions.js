@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import {
   Title,
   Container,
@@ -21,13 +19,9 @@ import {
   BoxTitle,
   Button2,
   ButtonReady,
-  ButtonExit
+  ButtonExit,
 } from './styles'
 import logoName from './images/logoName.png'
-
-const LinkGame = styled(Link)`
-  color: black;
-`
 
 const Instructions = ({
   isPlaying,
@@ -77,21 +71,16 @@ const Instructions = ({
             <ButtonReady to="/game">Play a Game</ButtonReady>
           ) : (
             <div className={'flex items-center'}>
-              <Button2
-
-
-                onClick={() => setIsPlaying(true)}
-              >
+              <Button2 onClick={() => setIsPlaying(true)}>
                 Back to the Game
               </Button2>
               <br />
               <ButtonExit to="/">Exit this game</ButtonExit>
-
             </div>
           )}
         </Right>
       </Box>
-    </Container >
+    </Container>
   )
 }
 

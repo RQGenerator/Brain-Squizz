@@ -1,5 +1,4 @@
 import { MainGame } from './QuestionStyle'
-import './AnswersStyle'
 import { CheckSquareTwoTone } from '@ant-design/icons'
 import { Button } from 'antd'
 
