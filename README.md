@@ -37,7 +37,7 @@
     <a href="https://github.com/RQGenerator/Brain-Squizz"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RQGenerator/Brain-Squizz">View Demo</a>
+    <a href="https://brain-squizz.herokuapp.com">View Demo</a>
     ·
     <a href="https://github.com/RQGenerator/Brain-Squizz/issues">Report Bug</a>
     ·

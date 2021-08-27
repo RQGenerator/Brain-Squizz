@@ -1,6 +1,6 @@
 {
-    "short_name": "RQG",
-    "name": "Random Quiz Generator",
+    "short_name": "brainsquizz",
+    "name": "Brain Squizz",
     "icons": [
         {
             "src": "favicon.ico",

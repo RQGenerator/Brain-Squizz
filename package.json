@@ -1,6 +1,6 @@
 {
-  "name": "rqgenerator",
-  "version": "0.1.0",
+  "name": "brain-squizz",
+  "version": "0.1",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
