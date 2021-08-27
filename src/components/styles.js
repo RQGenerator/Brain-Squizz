@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Title = styled.h1`
   text-align: center;
@@ -147,7 +148,29 @@ export const Button2 = styled.button`
   background: #00ffff;
   border-radius: 14px;
   padding: 4px 30px;
+  &:hover {
+    color: white;
+  }
 `
+
+export const ButtonReady = styled(Link)`
+  background: #00ffff;
+  border-radius: 14px;
+  padding: 4px 30px;
+  &:hover {
+    color: white;
+  }
+`
+export const ButtonExit = styled(Link)`
+  background: #00ffff;
+  border-radius: 14px;
+  padding: 4px 30px;
+  margin-left: 10px;
+  &:hover {
+    color: white;
+  }
+`
+
 export const LogoImg = styled.img`
   width: 340px;
   margin: 30px 0px 0px;
