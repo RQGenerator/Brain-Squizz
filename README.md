@@ -84,6 +84,7 @@
 - [Ant Design](https://ant.design)
 - [Styled Components](https://styled-components.com)
 - [React Countdown Circle Timer](https://www.npmjs.com/package/react-countdown-circle-timer)
+- [he](https://github.com/mathiasbynens/he)
 
 <!-- GETTING STARTED -->
 

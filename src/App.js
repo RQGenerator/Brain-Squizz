@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setStart(true)
-    }, 5000)
+    }, 2000)
   }, [])
 
   return (

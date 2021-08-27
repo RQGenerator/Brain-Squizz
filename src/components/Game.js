@@ -12,6 +12,7 @@ import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
+const he = require('he')
 const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
 
@@ -76,19 +77,19 @@ const Game = () => {
 
   useEffect(() => {
     axios
-      .get('https://opentdb.com/api.php?amount=10')
+      .get('https://opentdb.com/api.php?amount=10&difficulty=easy')
       .then((response) => {
         const quizTemp = response.data.results.map((question, i) => {
           const answers = []
           answers.push({
-            text: question.correct_answer,
+            text: he.decode(question.correct_answer),
             isCorrect: true,
           })
           question.incorrect_answers.forEach((wrongAnswer) =>
-            answers.push({ text: wrongAnswer, isCorrect: false })
+            answers.push({ text: he.decode(wrongAnswer), isCorrect: false })
           )
           shuffle(answers)
-          return { question, answers }
+          return { question: he.decode(question.question), answers }
         })
         setQuiz(quizTemp)
         setLoading(false)
@@ -98,14 +99,14 @@ const Game = () => {
         const quizTemp = data.results.map((question, i) => {
           const answers = []
           answers.push({
-            text: question.correct_answer,
+            text: he.decode(question.correct_answer),
             isCorrect: true,
           })
           question.incorrect_answers.forEach((wrongAnswer) =>
-            answers.push({ text: wrongAnswer, isCorrect: false })
+            answers.push({ text: he.decode(wrongAnswer), isCorrect: false })
           )
           shuffle(answers)
-          return { question, answers }
+          return { question: he.decode(question.question), answers }
         })
         setQuiz(quizTemp)
         setLoading(false)
