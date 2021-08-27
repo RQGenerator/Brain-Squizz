@@ -30,13 +30,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/rqgenerator/brain-squizz">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">Brain Squizz</h3>
 
   <p align="center">
-    project_description
+    Challenge your knowledge and have fun at the same time!
     <br />
     <a href="https://github.com/rqgenerator/brain-squizz"><strong>Explore the docs »</strong></a>
     <br />
