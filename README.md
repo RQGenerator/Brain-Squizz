@@ -1,28 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** RQGenerator RQGenerator, Brain-Squizz, twitter_handle, email, project_title, project_description
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
-
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/RQGenerator/Brain-Squizz">
@@ -94,7 +69,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Make sure you have the latest npm installed by running this command
 
 - npm
   ```sh
@@ -107,7 +82,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/RQGenerator/Brain-Squizz.git
    ```
-2. Install NPM packages
+2. Install npm packages
    ```sh
    npm install
    ```
@@ -116,15 +91,25 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+1. Start the app
+   ```sh
+   npm start
+   ```
+2. Enjoy the game and challenge your friends
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Refer to the documentation for further information on the gameplay and rules of the game 🎰
+
+_[Documentation](https://rqgenerator.github.io/Brain-Squizz/)_
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
 See the [open issues](https://github.com/RQGenerator/Brain-Squizz/issues) for a list of proposed features (and known issues).
+
+\_Save generated quiz
+\_Challenge friends
+\_Soundtrack
 
 <!-- CONTRIBUTING -->
 
@@ -138,34 +123,27 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+Happy coding 🧑‍💻
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-grey?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
+
+Victor Isidoro - [@vtr84](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-grey?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
 
 Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgements
+## Technologies Used
 
-- []()
-- []()
-- []()
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/RQGenerator/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/RQGenerator/Brain-Squizz/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/RQGenerator/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/RQGenerator/Brain-Squizz/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/RQGenerator
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
+![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
+![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
+![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)
+![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
