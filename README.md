@@ -7,7 +7,7 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** rqgenerator RQGenerator, brain-squizz, twitter_handle, email, project_title, project_description
+*** RQGenerator RQGenerator, Brain-Squizz, twitter_handle, email, project_title, project_description
 -->
 
 <!-- PROJECT SHIELDS -->
@@ -20,17 +20,13 @@
 -->
 
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/rqgenerator/brain-squizz">
-    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/RQGenerator/Brain-Squizz">
+    <img src="public/images/logo.png" alt="Logo" width="100" height="80">
   </a>
 
   <h3 align="center">Brain Squizz</h3>
@@ -38,14 +34,14 @@
   <p align="center">
     Challenge your knowledge and have fun at the same time!
     <br />
-    <a href="https://github.com/rqgenerator/brain-squizz"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/RQGenerator/Brain-Squizz"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/rqgenerator/brain-squizz">View Demo</a>
+    <a href="https://github.com/RQGenerator/Brain-Squizz">View Demo</a>
     ·
-    <a href="https://github.com/rqgenerator/brain-squizz/issues">Report Bug</a>
+    <a href="https://github.com/RQGenerator/Brain-Squizz/issues">Report Bug</a>
     ·
-    <a href="https://github.com/rqgenerator/brain-squizz/issues">Request Feature</a>
+    <a href="https://github.com/RQGenerator/Brain-Squizz/issues">Request Feature</a>
   </p>
 </p>
 
@@ -108,7 +104,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/rqgenerator/brain-squizz.git
+   git clone https://github.com/RQGenerator/Brain-Squizz.git
    ```
 2. Install NPM packages
    ```sh
@@ -127,7 +123,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/rqgenerator/brain-squizz/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/RQGenerator/Brain-Squizz/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -153,7 +149,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/rqgenerator/brain-squizz](https://github.com/rqgenerator/brain-squizz)
+Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -166,15 +162,9 @@ Project Link: [https://github.com/rqgenerator/brain-squizz](https://github.com/r
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/rqgenerator/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/rqgenerator/brain-squizz/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/rqgenerator/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/rqgenerator/brain-squizz/network/members
-[stars-shield]: https://img.shields.io/github/stars/rqgenerator/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/rqgenerator/brain-squizz/stargazers
-[issues-shield]: https://img.shields.io/github/issues/rqgenerator/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/rqgenerator/brain-squizz/issues
-[license-shield]: https://img.shields.io/github/license/rqgenerator/repo.svg?style=for-the-badge
-[license-url]: https://github.com/rqgenerator/brain-squizz/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/RQGenerator/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/RQGenerator/Brain-Squizz/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/RQGenerator/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/RQGenerator/Brain-Squizz/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/rqgenerator
+[linkedin-url]: https://linkedin.com/in/RQGenerator
