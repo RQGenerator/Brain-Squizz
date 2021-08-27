@@ -50,7 +50,7 @@
 
 ## About The Project
 
-[![Brain Squizz][app-screenshot]](./public/images/screenshot.png)
+![Brain Squizz](./public/images/screenshot.png)
 
 ### Built With
 
