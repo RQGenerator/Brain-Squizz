@@ -5,8 +5,9 @@ import { PauseOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
-import { GameDiv, TopBar, BottomBar } from './GameStyle'
+import { GameDiv, TopBar } from './GameStyle'
 import ProgressBar from './ProgressBar'
+import SkipButton from './SkipButton'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
@@ -159,31 +160,22 @@ const Game = () => {
             handleAnswer={handleAnswer}
             totalQuestion={totalQuestion}
           />
-          <BottomBar>
-            <ProgressBar value={currentQuestion + 1} max={totalQuestion} />
-            <button
-              onClick={skip}
-              className={`has-tooltip flex items-center p-3 rounded-full shadow-xs cursor-pointer hover:text-gray-100 ${skipInfo[skipCount].class}`}
-            >
-              <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-14">
-                {skipInfo[skipCount].text}
-              </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </BottomBar>
+          <div className="flex">
+            <div className="flex-grow pt-5 pr-5">
+              <ProgressBar
+                className="flex"
+                value={currentQuestion + 1}
+                max={totalQuestion}
+              />
+            </div>
+            <div className="flex-grow-0">
+              <SkipButton
+                skip={skip}
+                skipInfo={skipInfo}
+                skipCount={skipCount}
+              />
+            </div>
+          </div>
         </GameDiv>
       ) : (
         <div>
