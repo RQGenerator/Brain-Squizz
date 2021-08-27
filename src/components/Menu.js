@@ -6,7 +6,6 @@ import FindAQuizz from './FindAQuizz'
 import CreditsButton from './CreditsButton'
 import styled from 'styled-components'
 import InstructionsButton from './InstructionsButton'
-import { useState } from 'react'
 
 // margin: 50px 400px 0px;
 const MenuContainer = styled.div`
@@ -46,7 +45,6 @@ const MenuButtonsContainer = styled.div`
 `
 
 const Menu = () => {
-
   return (
     <Container>
       <MenuContainer>

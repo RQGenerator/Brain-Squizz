@@ -12,6 +12,8 @@ import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
+const timeLimit = 15
+const bonuses = [1, 1.5, 1.75, 2]
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -25,8 +27,31 @@ const shuffle = (array) => {
   return array
 }
 
+const score = (answer) => {
+  let answerScore = {}
+  let points = 0
+  let bonus = 1
+  if (answer.isCorrect) {
+    points = 100
+  }
+  answer.time === 0
+    ? ([points, bonus] = [-20, 1])
+    : answer.time !== -1
+    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+    : (bonus = 0)
+  answerScore.points = points
+  answerScore.bonus = bonus
+  return answerScore
+}
+
+const totalScore = (results) => {
+  let totalScore = results
+    .map((answer) => score(answer).points * score(answer).bonus)
+    .reduce((total, value) => total + value, 0)
+  return totalScore
+}
+
 const Game = () => {
-  const [displayButton, setDisplayButton] = useState(true)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
@@ -139,7 +164,7 @@ const Game = () => {
             <CountdownCircleTimer
               key={currentQuestion}
               isPlaying={isPlaying}
-              duration={15}
+              duration={timeLimit}
               size={50}
               strokeWidth={4}
               colors={[
@@ -188,10 +213,13 @@ const Game = () => {
           <ul>
             {result.map((answer, i) => (
               <li key={i} id={i}>
-                {answer.time} - {answer.isCorrect ? 'true' : 'false'}
+                {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
+                {score(answer).points} * {score(answer).bonus} ={' '}
+                {score(answer).points * score(answer).bonus}
               </li>
             ))}
           </ul>
+          {totalScore(result)}
         </div>
       )}
 
