@@ -1,6 +1,6 @@
+import { data } from '../data'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { data } from '../data'
 import { PauseOutlined } from '@ant-design/icons'
 import { Tooltip, Button } from 'antd'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
@@ -24,13 +24,13 @@ const shuffle = (array) => {
 }
 
 const Game = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
-  const [countDown, setCountDown] = useState(true)
   const [quiz, setQuiz] = useState([])
+  const [countDown, setCountDown] = useState(true)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const totalQuestion = quiz.length
   const [isPlaying, setIsPlaying] = useState(true)
   const [skipCount, setSkipCount] = useState(0)
-  const [result, setResult] = useState([])
   const skipInfo = [
     { class: 'bg-green-200 hover:bg-green-500', text: '3 Skips available' },
     { class: 'bg-yellow-200 hover:bg-yellow-500', text: '2 Skips available' },
@@ -43,6 +43,9 @@ const Game = () => {
       text: 'No more skip available',
     },
   ]
+  const [answerTime, setAnswerTime] = useState(0)
+  const [result, setResult] = useState([])
+
   useEffect(() => {
     axios
       .get('https://opentdb.com/api.php?amount=10')
@@ -81,23 +84,28 @@ const Game = () => {
       })
   }, [])
 
-  const totalQuestion = quiz.length
-  const handleAnswer = (time, answer) => {
+  const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
+    let time = where
+    if (typeof where !== 'number') {
+      time = answerTime
+    }
     const updatedResult = [...result, { time: time, isCorrect: answer }]
     setResult(updatedResult)
     if (next < totalQuestion) {
       setCurrentQuestion(next)
     } else {
-      setLoading(true)
+      setCurrentQuestion(-1)
     }
   }
+
   const skip = () => {
     if (skipCount < 3) {
       setSkipCount(skipCount + 1)
       handleAnswer(-1, false)
     }
   }
+
   return (
     <>
       {loading ? (
@@ -119,7 +127,7 @@ const Game = () => {
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>
         </div>
-      ) : (
+      ) : currentQuestion !== -1 ? (
         <GameDiv>
           <TopBar>
             <CountdownCircleTimer
@@ -136,7 +144,7 @@ const Game = () => {
               ]}
               onComplete={() => handleAnswer(0, false)}
             >
-              {RenderTime}
+              <RenderTime setAnswerTime={setAnswerTime} />
             </CountdownCircleTimer>
             <Tooltip title="pause">
               <Button
@@ -177,6 +185,17 @@ const Game = () => {
             </button>
           </BottomBar>
         </GameDiv>
+      ) : (
+        <div>
+          Results:
+          <ul>
+            {result.map((answer, i) => (
+              <li key={i} id={i}>
+                {answer.time} - {answer.isCorrect ? 'true' : 'false'}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </>
   )

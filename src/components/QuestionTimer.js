@@ -1,4 +1,5 @@
-const RenderTime = ({ remainingTime }) => {
+const RenderTime = ({ remainingTime, setAnswerTime }) => {
+  setAnswerTime(remainingTime)
   return (
     <div>
       <p
