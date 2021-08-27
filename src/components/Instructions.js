@@ -1,26 +1,28 @@
 import styled from 'styled-components'
 import ButtonStart from './ButtonStart'
-import { Title, Container, Box, SubTitle, Bar, Text, Left, Right, TextQuiz, BoxAnswer, BoxAnswer2, Answer1, Answer2, Answer3, Answer4 } from './styles'
+import { Title, Container, Box, SubTitle, Bar, Text, Left, Right, TextQuiz, BoxAnswer, BoxAnswer2, Answer1, Answer2, Answer3, Answer4, LogoImg, LogoContainer, BoxTitle } from './styles'
+import logoName from "./images/logoName.png"
 
 
 
 
-
-const Instructions = ({ pauseGame }) => {
+const Instructions = () => {
 
 
     return (
         <body>
             <Container>
-                <div>
+                <BoxTitle>
                     <Title>
-                        Instructions
+                        Let's play! But first, here's the Instructions:
                     </Title>
-                </div>
+                </BoxTitle>
                 <Box>
                     <Left>
                         {/* the images doens not work  */}
-                        <img src="/src/images/logo1.png" alt="logo" />
+                        <LogoContainer>
+                            <LogoImg src={logoName} alt="logo" />
+                        </LogoContainer>
                         <TextQuiz>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis
                         </TextQuiz>
@@ -41,7 +43,7 @@ const Instructions = ({ pauseGame }) => {
                         <Bar></Bar>
                         <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis</Text>
 
-                        <ButtonStart pauseGame={pauseGame} />
+                        <ButtonStart />
 
 
                     </Right>

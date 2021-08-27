@@ -29,7 +29,7 @@ color: black;
 const PlayGameButton = () => {
   return (
     <PlayGame>
-      <LinkGame to="/game">Play a Game</LinkGame>
+      <LinkGame to="/instructions">Play a Game</LinkGame>
     </PlayGame>
   )
 }

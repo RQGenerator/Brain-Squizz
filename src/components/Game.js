@@ -84,6 +84,9 @@ const Game = () => {
         setLoading(false)
       })
   }, [])
+  const noDisplay = {
+    display: 'none',
+  }
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1

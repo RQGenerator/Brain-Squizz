@@ -4,6 +4,7 @@ import Menu from './components/Menu'
 import Game from './components/Game'
 import Splash from './components/Splash'
 import Credits from './components/Credits'
+import Instructions from './components/Instructions'
 
 const App = () => {
   const [start, setStart] = useState(false)
@@ -18,6 +19,9 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           {start ? <Menu /> : <Splash />}
+        </Route>
+        <Route path="/instructions" exact>
+          <Instructions />
         </Route>
         <Route path="/game" exact>
           <Game />
