@@ -12,8 +12,3 @@ export const GameDiv = Styled.div`
   justify-content: space-evenly;
   flex-direction: column;
 `
-export const TopBar = Styled.div`
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-`
