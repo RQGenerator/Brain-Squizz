@@ -1,30 +1,31 @@
-/* eslint-disable prettier/prettier */
+// Rename this component
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const FindAquiz = styled.button`
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 30px;
-font-size: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-size: 20px;
 
-background: #745CF2;
-margin: 0px 0px 15px;
-width: 30%;
+  background: #745cf2;
+  margin: 0px 0px 15px;
+  width: 30%;
 
-@media (max-width: 520px) {
-    font-size: 15px;   
-}
+  @media (max-width: 520px) {
+    font-size: 15px;
+  }
 
-@media (max-width: 440px) {
+  @media (max-width: 440px) {
     font-size: 10px;
-
-}
+  }
 `
 
 const FindAQuizz = () => {
-    return (
-        <FindAquiz>Find a Quizz</FindAquiz>
-
-    )
+  return (
+    <FindAquiz>
+      <Link to="/leaderboard">Leaderboard</Link>
+    </FindAquiz>
+  )
 }
 
-export default FindAQuizz;
+export default FindAQuizz

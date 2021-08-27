@@ -41,7 +41,6 @@ const score = (answer) => {
     : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
-  console.log(Math.ceil(answer.time / (timeLimit / 4)) - 1)
   return answerScore
 }
 

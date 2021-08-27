@@ -5,6 +5,7 @@ import Game from './components/Game'
 import Splash from './components/Splash'
 import Credits from './components/Credits'
 import Instructions from './components/Instructions'
+import LeaderBoard from './components/LeaderBoard'
 
 const App = () => {
   const [start, setStart] = useState(false)
@@ -20,13 +21,16 @@ const App = () => {
         <Route exact path="/">
           {start ? <Menu /> : <Splash />}
         </Route>
-        <Route path="/game" exact>
+        <Route path="/game">
           <Game />
         </Route>
-        <Route path="/instructions" exact>
+        <Route path="/instructions">
           <Instructions isPlaying={false} />
         </Route>
-        <Route path="/credits" exact>
+        <Route path="/leaderboard">
+          <LeaderBoard isPlaying={false} />
+        </Route>
+        <Route path="/credits">
           <Credits />
         </Route>
       </Switch>

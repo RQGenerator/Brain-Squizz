@@ -1,6 +1,4 @@
-import Styled from "styled-components"
-import boardImage from "./images/boardImage.png"
-
+import Styled from 'styled-components'
 
 const Line = Styled.tr`
 display: flex;
@@ -14,7 +12,6 @@ border-bottom: 1px solid #ddd;
 
 `
 const Container = Styled.fieldset`
-
 width: 100%;
 display: flex;
 flex-direction: column;
@@ -71,90 +68,57 @@ background-color: white;
 const ImageLeaderBoard = Styled.img`
 width: 50%;
 `
-
-
-
-
-
-const playerScore = [
-    {
-        name: "Jamal",
-        score: 20
-    },
-
-    {
-        name: "Alan",
-        score: 59
-    },
-
-    {
-        name: "Darius",
-        score: 80
-    },
-
-    {
-        name: "Morin",
-        score: 27
-    },
-    {
-        name: "Maorbid",
-        score: 72
-    }
-]
-
-console.log(playerScore)
-
-
-
 const LeaderBoard = () => {
+  const playerScore = [
+    {
+      name: 'Jamal',
+      score: 20,
+    },
 
-    return (
-        <div>
+    {
+      name: 'Alan',
+      score: 59,
+    },
 
-            <Container>
-                <TitleLegend>
-                    <ImageLeaderBoard src={boardImage} alt="leaderboard" />
-                </TitleLegend>
-                <TitleContainer>
-                    <Title1>Rank</Title1>
-                    <Title2>Name</Title2>
-                    <Title3>Score</Title3>
-                </TitleContainer>
+    {
+      name: 'Darius',
+      score: 80,
+    },
 
-                <Line>
-                    <Content>#1</Content>
-                    <Content>Albani</Content>
-                    <Content>1400</Content>
-                </Line>
-                <Line>
-                    <Content>#2</Content>
-                    <Content>JUJU</Content>
-                    <Content>234</Content>
-                </Line>
-                <Line>
-                    <Content>#3</Content>
-                    <Content>Marbilo</Content>
-                    <Content>3567</Content>
-                </Line>
-                <Line>
-                    <Content>#4</Content>
-                    <Content>Draaki</Content>
-                    <Content>45345</Content>
-                </Line>
-                <Line>
-                    <Content>#5</Content>
-                    <Content>Borish</Content>
-                    <Content>56</Content>
-                </Line>
-
-
-            </Container>
-
-
-        </div>
-    )
-
-
+    {
+      name: 'Morin',
+      score: 27,
+    },
+    {
+      name: 'Maorbid',
+      score: 72,
+    },
+  ]
+  playerScore.sort((a, b) => b.score - a.score)
+  return (
+    <div>
+      <Container>
+        <TitleLegend>
+          <ImageLeaderBoard
+            src={process.env.PUBLIC_URL + '/images/logo.png'}
+            alt="leaderboard"
+          />
+        </TitleLegend>
+        <TitleContainer>
+          <Title1>Rank</Title1>
+          <Title2>Name</Title2>
+          <Title3>Score</Title3>
+        </TitleContainer>
+        {playerScore.map((score, i) => (
+          <Line>
+            <Content>#{i + 1}</Content>
+            <Content>{score.name}</Content>
+            <Content>{score.score}</Content>
+          </Line>
+        ))}
+      </Container>
+    </div>
+  )
 }
 
 export default LeaderBoard
