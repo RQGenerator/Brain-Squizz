@@ -7,6 +7,7 @@ import Credits from './components/Credits'
 import Instructions from './components/Instructions'
 import Leaderboard from './components/Leaderboard'
 
+
 const App = () => {
   const [start, setStart] = useState(false)
   useEffect(() => {

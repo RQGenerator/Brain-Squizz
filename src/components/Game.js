@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import RenderTime from './QuestionTimer'
-import { GameDiv } from './GameStyle'
 import ProgressBar from './ProgressBar'
 import SkipButton from './SkipButton'
 import PauseButton from './PauseButton'
@@ -11,7 +10,7 @@ import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
-import { hidden } from 'chalk'
+import CurrentScore from './CurrentScore'
 const he = require('he')
 const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
@@ -38,8 +37,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-    : (bonus = 0)
+      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+      : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -59,6 +58,7 @@ const Game = () => {
   const [countDown, setCountDown] = useState(true)
   const totalQuestion = quiz.length
   const [isPlaying, setIsPlaying] = useState(true)
+  const [answered, setAnswered] = useState(false)
   const [skipCount, setSkipCount] = useState(0)
   const skipInfo = [
     {
@@ -79,7 +79,8 @@ const Game = () => {
     },
   ]
   const [answerTime, setAnswerTime] = useState(0)
-  const [result, setResult] = useState([])
+  const [finished, setFinished] = useState(false)
+  const [result, setResult] = useState([{ time: -1, isCorrect: false }])
 
   useEffect(() => {
     axios
@@ -119,10 +120,6 @@ const Game = () => {
       })
   }, [])
 
-  const noDisplay = {
-    display: 'none',
-  }
-
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
     let time = where
@@ -136,6 +133,13 @@ const Game = () => {
     } else {
       setCurrentQuestion(-1)
     }
+    setAnswered(true)
+    setIsPlaying(false)
+  }
+
+  const proceed = () => {
+    setAnswered(false)
+    setIsPlaying(true)
   }
 
   const skip = () => {
@@ -166,11 +170,10 @@ const Game = () => {
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>
         </div>
-      ) : currentQuestion !== -1 ? (
+      ) : currentQuestion !== -1 && answered === false ? (
         <div
-          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
-            !isPlaying ? 'hidden' : ''
-          }`}
+          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${!isPlaying ? 'hidden' : ''
+            }`}
         >
           <div className="flex p-5 place-content-between">
             <CountdownCircleTimer
@@ -213,7 +216,7 @@ const Game = () => {
             </div>
           </div>
         </div>
-      ) : (
+      ) : finished ? (
         <div>
           Results:
           <ul>
@@ -227,11 +230,9 @@ const Game = () => {
           </ul>
           {totalScore(result)}
         </div>
-      )}
-
-      {!isPlaying ? (
-        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
       ) : null}
+      {answered ? <CurrentScore score={score} totalScore={totalScore} result={result} proceed={proceed} /> : null}
+      {!isPlaying && answered === false ? <Instructions isPlaying={true} setIsPlaying={setIsPlaying} /> : null}
     </>
   )
 }
