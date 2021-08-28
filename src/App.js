@@ -5,6 +5,8 @@ import Game from './components/Game'
 import Splash from './components/Splash'
 import Credits from './components/Credits'
 import Instructions from './components/Instructions'
+import axios from 'axios'
+
 
 const App = () => {
   const [start, setStart] = useState(false)
@@ -14,6 +16,19 @@ const App = () => {
     }, 5000)
   }, [])
 
+  const [gifs, setGifs] = useState([])
+
+  useEffect(() => {
+    axios
+      .get('https://api.giphy.com/v1/gifs/search?api_key=5RC9BRH88oW9wljD8azTzWG6mamn5x32&q=success&limit=1&offset=0&rating=r&lang=en')
+      .then((response) => {
+        console.log(response.data)
+        return response
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [])
   return (
     <Router>
       <Switch>

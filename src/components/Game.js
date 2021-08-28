@@ -11,7 +11,7 @@ import SkipButton from './SkipButton'
 import QuestionDiv from './Question'
 import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
-import Instructions from './Instructions'
+import Instructions from "./Instructions"
 
 const shuffle = (array) => {
   let currentIndex = array.length
@@ -24,6 +24,8 @@ const shuffle = (array) => {
   }
   return array
 }
+
+
 
 const Game = () => {
   const [displayButton, setDisplayButton] = useState(true)
@@ -87,7 +89,10 @@ const Game = () => {
       })
   }, [])
   const noDisplay = {
-    display: 'none',
+    display: "none"
+  }
+  const handleChangeButton = () => {
+    setDisplayButton(!displayButton)
   }
 
   const handleAnswer = (where, answer) => {
@@ -114,6 +119,7 @@ const Game = () => {
 
   return (
     <>
+
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -134,7 +140,7 @@ const Game = () => {
           </CountdownCircleTimer>
         </div>
       ) : currentQuestion !== -1 ? (
-        <GameDiv style={!isPlaying ? noDisplay : null}>
+        <GameDiv>
           <TopBar>
             <CountdownCircleTimer
               key={currentQuestion}
@@ -158,6 +164,7 @@ const Game = () => {
                 icon={<PauseOutlined />}
                 onClick={() => setIsPlaying(!isPlaying)}
               />
+
             </Tooltip>
           </TopBar>
           <QuestionDiv
@@ -195,9 +202,11 @@ const Game = () => {
         </div>
       )}
 
-      {!isPlaying ? (
-        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
-      ) : null}
+      {!isPlaying ? <Instructions isPlaying={true} setIsPlaying={setIsPlaying} /> : null}
+
+
+
+
     </>
   )
 }
