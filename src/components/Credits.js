@@ -1,10 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-import developedBy from '../components/images/DevelopedBy.001.png'
-import linkedinLogo from '../components/images/LI-Logo.png'
-import githubLogo from '../components/images/GitHub-Mark-32px.png'
 import { Link } from 'react-router-dom'
-import VectorBack from '../components/images/VectorBack.png'
 
 const Container = Styled.fieldset`
 
@@ -85,7 +81,10 @@ const Credits = () => {
     <div>
       <Container>
         <BoxTitle>
-          <ImageLeaderBoard src={developedBy} alt="leaderboard" />
+          <ImageLeaderBoard
+            src={process.env.PUBLIC_URL + '/images/developed_title.png'}
+            alt="Developed By Title"
+          />
         </BoxTitle>
         <Box1>
           <SubBox1>
@@ -96,11 +95,17 @@ const Credits = () => {
                 rel="noreferrer"
               >
                 {' '}
-                <Linkedin src={linkedinLogo} alt="linkedinLogo" />{' '}
+                <Linkedin
+                  src={process.env.PUBLIC_URL + '/images/linkedin_logo.png'}
+                  alt="Linkedin Logo"
+                />{' '}
               </a>
               <a href="https://github.com/Guilhaxr" rel="noreferrer">
                 {' '}
-                <GitHubLogo src={githubLogo} alt="githubLogo" />{' '}
+                <GitHubLogo
+                  src={process.env.PUBLIC_URL + '/images/github_logo.png'}
+                  alt="GitHub logo"
+                />{' '}
               </a>
             </SubBox2>
           </SubBox1>
@@ -112,11 +117,17 @@ const Credits = () => {
                 rel="noreferrer"
               >
                 {' '}
-                <Linkedin src={linkedinLogo} alt="linkedinLogo" />{' '}
+                <Linkedin
+                  src={process.env.PUBLIC_URL + '/images/linkedin_logo.png'}
+                  alt="Linkedin Logo"
+                />{' '}
               </a>
               <a href="https://github.com/vtr84" rel="noreferrer">
                 {' '}
-                <GitHubLogo src={githubLogo} alt="githubLogo" />{' '}
+                <GitHubLogo
+                  src={process.env.PUBLIC_URL + '/images/github_logo.png'}
+                  alt="GitHub logo"
+                />{' '}
               </a>
             </SubBox2>
           </SubBox1>
@@ -128,7 +139,10 @@ const Credits = () => {
           <ButtonBackHome>
             <Link to="/">
               {' '}
-              <ButtonImage src={VectorBack} alt="VectorBack" />
+              <ButtonImage
+                src={process.env.PUBLIC_URL + '/images/button_back.png'}
+                alt="Button back"
+              />
             </Link>
           </ButtonBackHome>
         </div>
