@@ -11,6 +11,7 @@ import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
 import CurrentScore from './CurrentScore'
+import FinalScore from './FinalScore'
 const he = require('he')
 const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
@@ -37,8 +38,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-      : (bonus = 0)
+    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+    : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -172,8 +173,9 @@ const Game = () => {
         </div>
       ) : currentQuestion !== -1 && answered === false ? (
         <div
-          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${!isPlaying ? 'hidden' : ''
-            }`}
+          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
+            !isPlaying ? 'hidden' : ''
+          }`}
         >
           <div className="flex p-5 place-content-between">
             <CountdownCircleTimer
@@ -217,22 +219,19 @@ const Game = () => {
           </div>
         </div>
       ) : finished ? (
-        <div>
-          Results:
-          <ul>
-            {result.map((answer, i) => (
-              <li key={i} id={i}>
-                {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
-                {score(answer).points} * {score(answer).bonus} ={' '}
-                {score(answer).points * score(answer).bonus}
-              </li>
-            ))}
-          </ul>
-          {totalScore(result)}
-        </div>
+        <FinalScore score={score} totalScore={totalScore} result={result} />
       ) : null}
-      {answered ? <CurrentScore score={score} totalScore={totalScore} result={result} proceed={proceed} /> : null}
-      {!isPlaying && answered === false ? <Instructions isPlaying={true} setIsPlaying={setIsPlaying} /> : null}
+      {answered ? (
+        <CurrentScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          proceed={proceed}
+        />
+      ) : null}
+      {!isPlaying && answered === false ? (
+        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+      ) : null}
     </>
   )
 }
