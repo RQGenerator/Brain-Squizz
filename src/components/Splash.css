@@ -1,0 +1,69 @@
+/* Image animation */
+#brain {
+  animation: createBox 3s;
+  height: 300px;
+}
+@keyframes createBox {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Background animation */
+#container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    128deg,
+    #bcda85,
+    #c0a1cf,
+    #7f7fd5,
+    #8399e0,
+    #91eae4
+  );
+  background-size: 1000% 1000%;
+  display: flex;
+  align-items: center;
+  -webkit-animation: ColorFade 10s ease infinite;
+  -moz-animation: ColorFade 10s ease infinite;
+  animation: ColorFade 10s ease infinite;
+}
+@-webkit-keyframes ColorFade {
+  0% {
+    background-position: 9% 0%;
+  }
+  50% {
+    background-position: 92% 100%;
+  }
+  100% {
+    background-position: 9% 0%;
+  }
+}
+@-moz-keyframes ColorFade {
+  0% {
+    background-position: 9% 0%;
+  }
+  50% {
+    background-position: 92% 100%;
+  }
+  100% {
+    background-position: 9% 0%;
+  }
+}
+@keyframes ColorFade {
+  0% {
+    background-position: 9% 0%;
+  }
+  50% {
+    background-position: 92% 100%;
+  }
+  100% {
+    background-position: 9% 0%;
+  }
+}
