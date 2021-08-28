@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import PlayGameButton from './PlayGameButton'
-import FindAQuizz from './FindAQuizz'
+import LeaderboardButton from './LeaderboardButton'
 import CreditsButton from './CreditsButton'
 import styled from 'styled-components'
 import InstructionsButton from './InstructionsButton'
@@ -55,7 +55,7 @@ const Menu = () => {
         </LogoContainer>
         <MenuButtonsContainer>
           <PlayGameButton />
-          <FindAQuizz />
+          <LeaderboardButton />
           <InstructionsButton />
           <CreditsButton />
         </MenuButtonsContainer>
