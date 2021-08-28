@@ -21,7 +21,6 @@ import {
   ButtonReady,
   ButtonExit,
 } from './styles'
-import logoName from './images/logoName.png'
 
 const Instructions = ({
   isPlaying,
@@ -42,7 +41,10 @@ const Instructions = ({
       <Box>
         <Left>
           <LogoContainer>
-            <LogoImg src={logoName} alt="logo" />
+            <LogoImg
+              src={process.env.PUBLIC_URL + '/images/app_name.png'}
+              alt="App Name"
+            />
           </LogoContainer>
           <TextQuiz>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,

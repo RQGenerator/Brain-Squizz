@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import logo from './images/logooo.png'
 import PlayGameButton from './PlayGameButton'
 import FindAQuizz from './FindAQuizz'
 import CreditsButton from './CreditsButton'
@@ -49,7 +48,10 @@ const Menu = () => {
     <Container>
       <MenuContainer>
         <LogoContainer>
-          <Logoo src={logo} alt="logo" />
+          <Logoo
+            src={process.env.PUBLIC_URL + '/images/logo_name.png'}
+            alt="Logo"
+          />
         </LogoContainer>
         <MenuButtonsContainer>
           <PlayGameButton />
