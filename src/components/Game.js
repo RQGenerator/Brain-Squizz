@@ -81,7 +81,7 @@ const Game = () => {
   ]
   const [answerTime, setAnswerTime] = useState(0)
   const [finished, setFinished] = useState(false)
-  const [result, setResult] = useState([{ time: -1, isCorrect: false }])
+  const [result, setResult] = useState([])
 
   useEffect(() => {
     axios
@@ -132,10 +132,10 @@ const Game = () => {
     if (next < totalQuestion) {
       setCurrentQuestion(next)
     } else {
-      setCurrentQuestion(-1)
+      setFinished(true)
     }
-    setAnswered(true)
-    setIsPlaying(false)
+    // setAnswered(true)
+    // setIsPlaying(false)
   }
 
   const proceed = () => {
@@ -148,6 +148,17 @@ const Game = () => {
       setSkipCount(skipCount + 1)
       handleAnswer(-1, false)
     }
+  }
+
+  const reset = () => {
+    setQuiz([])
+    setAnswered(false)
+    setIsPlaying(true)
+    setLoading(true)
+    setCurrentQuestion(0)
+    setCountDown(true)
+    setSkipCount(0)
+    setFinished(false)
   }
 
   return (
@@ -171,7 +182,7 @@ const Game = () => {
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>
         </div>
-      ) : currentQuestion !== -1 && answered === false ? (
+      ) : finished === false && answered === false ? (
         <div
           className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
             !isPlaying ? 'hidden' : ''
@@ -218,20 +229,25 @@ const Game = () => {
             </div>
           </div>
         </div>
-      ) : finished ? (
-        <FinalScore score={score} totalScore={totalScore} result={result} />
-      ) : null}
-      {answered ? (
+      ) : answered ? (
         <CurrentScore
           score={score}
           totalScore={totalScore}
           result={result}
           proceed={proceed}
         />
-      ) : null}
-      {!isPlaying && answered === false ? (
+      ) : finished ? (
+        <FinalScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          reset={reset}
+        />
+      ) : !isPlaying && answered === false ? (
         <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
-      ) : null}
+      ) : (
+        "Something' wrong..."
+      )}
     </>
   )
 }
