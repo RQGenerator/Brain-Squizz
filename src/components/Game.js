@@ -38,8 +38,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-    : (bonus = 0)
+      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+      : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -120,7 +120,10 @@ const Game = () => {
   }, [])
 
   const noDisplay = {
-    display: 'none',
+    display: "none"
+  }
+  const handleChangeButton = () => {
+    setDisplayButton(!displayButton)
   }
 
   const handleAnswer = (where, answer) => {
@@ -147,6 +150,7 @@ const Game = () => {
 
   return (
     <>
+
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -168,9 +172,8 @@ const Game = () => {
         </div>
       ) : currentQuestion !== -1 ? (
         <div
-          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
-            !isPlaying ? 'hidden' : ''
-          }`}
+          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${!isPlaying ? 'hidden' : ''
+            }`}
         >
           <div className="flex p-5 place-content-between">
             <CountdownCircleTimer
@@ -229,9 +232,11 @@ const Game = () => {
         </div>
       )}
 
-      {!isPlaying ? (
-        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
-      ) : null}
+      {!isPlaying ? <Instructions isPlaying={true} setIsPlaying={setIsPlaying} /> : null}
+
+
+
+
     </>
   )
 }
