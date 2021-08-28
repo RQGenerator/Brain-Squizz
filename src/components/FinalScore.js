@@ -1,17 +1,17 @@
 const FinalScore = ({ score, totalScore, result }) => {
   return (
-    <div>
+    <div className="bg-white rounded-xl shadow-xl p-10 w-full">
       Results:
       <ul>
         {result.map((answer, i) => (
           <li key={i} id={i}>
-            {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
+            {i + 1} - {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
             {score(answer).points} * {score(answer).bonus} ={' '}
             {score(answer).points * score(answer).bonus}
           </li>
         ))}
       </ul>
-      {totalScore(result)}
+      Total: {totalScore(result)}
     </div>
   )
 }
