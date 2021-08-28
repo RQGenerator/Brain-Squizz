@@ -9,8 +9,8 @@ border-bottom: 1px solid #ddd;
     
     font-size: 15px;
 }
-
 `
+
 const Container = Styled.fieldset`
 width: 100%;
 display: flex;
@@ -24,25 +24,22 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 15px;
     padding: 10px 30px 40px;
 }
-
 `
 
 const Content = Styled.td`
 padding: 20px
-
-
-
-
 `
 
 const Title1 = Styled.th`
 padding: 20px;
 color: ghostwhite;
 `
+
 const Title2 = Styled.th`
 padding: 20px;
 color: ghostwhite;
 `
+
 const Title3 = Styled.th`
 padding: 20px;
 color: ghostwhite;
@@ -52,8 +49,7 @@ const TitleContainer = Styled.tr`
 display: flex;
 justify-content: space-between;
 font-size: xx-large;
-@media (max-width: 450px) {
-    
+@media (max-width: 450px) {    
     font-size: 15px;
 }
 `
@@ -69,6 +65,7 @@ const ImageLeaderBoard = Styled.img`
 width: 50%;
 `
 const Leaderboard = () => {
+  // implement API Call from database to feed leaderboard - backend necessary
   const playerScore = [
     {
       name: 'Jamal',
