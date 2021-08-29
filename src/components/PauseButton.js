@@ -1,8 +1,8 @@
-const PauseButton = ({ isPlaying, setIsPlaying }) => {
+const PauseButton = ({ setIsPlaying }) => {
   return (
     <button
       onClick={() => {
-        setIsPlaying(!isPlaying)
+        setIsPlaying(false)
       }}
       className={`has-tooltip flex items-center pl-2 pr-2 rounded-full shadow-xs cursor-pointer hover:text-gray-100 bg-gray-200 hover:bg-gray-500`}
     >

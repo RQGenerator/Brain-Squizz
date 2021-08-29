@@ -1,4 +1,3 @@
-import { data } from '../data'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
@@ -103,23 +102,9 @@ const Game = () => {
         setLoading(false)
       })
       .catch((error) => {
-        alert(error + '\r The game will be loaded with local data')
-        const quizTemp = data.results.map((question, i) => {
-          const answers = []
-          answers.push({
-            text: he.decode(question.correct_answer),
-            isCorrect: true,
-          })
-          question.incorrect_answers.forEach((wrongAnswer) =>
-            answers.push({ text: he.decode(wrongAnswer), isCorrect: false })
-          )
-          shuffle(answers)
-          return { question: he.decode(question.question), answers }
-        })
-        setQuiz(quizTemp)
-        setLoading(false)
+        console.log(error)
       })
-  }, [])
+  }, [finished])
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -159,10 +144,11 @@ const Game = () => {
     setCountDown(true)
     setSkipCount(0)
     setFinished(false)
+    setResult([])
   }
 
   return (
-    <>
+    <div className="flex justify-center items-center w-screen h-screen">
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -182,9 +168,25 @@ const Game = () => {
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>
         </div>
-      ) : finished === false && answered === false ? (
+      ) : answered ? (
+        <CurrentScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          proceed={proceed}
+        />
+      ) : finished ? (
+        <FinalScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          reset={reset}
+        />
+      ) : isPlaying === false && answered === false ? (
+        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+      ) : (
         <div
-          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${
+          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${
             !isPlaying ? 'hidden' : ''
           }`}
         >
@@ -205,7 +207,7 @@ const Game = () => {
             >
               <RenderTime setAnswerTime={setAnswerTime} />
             </CountdownCircleTimer>
-            <PauseButton isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+            <PauseButton setIsPlaying={setIsPlaying} />
           </div>
           <QuestionDiv
             details={quiz[currentQuestion]}
@@ -229,26 +231,8 @@ const Game = () => {
             </div>
           </div>
         </div>
-      ) : answered ? (
-        <CurrentScore
-          score={score}
-          totalScore={totalScore}
-          result={result}
-          proceed={proceed}
-        />
-      ) : finished ? (
-        <FinalScore
-          score={score}
-          totalScore={totalScore}
-          result={result}
-          reset={reset}
-        />
-      ) : !isPlaying && answered === false ? (
-        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
-      ) : (
-        "Something' wrong..."
       )}
-    </>
+    </div>
   )
 }
 
