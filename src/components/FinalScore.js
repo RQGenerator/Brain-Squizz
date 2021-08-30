@@ -24,9 +24,9 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
         <h1 className="text-white text-2xl">Congratulations!</h1>
       </div>
       <div className="flex flex-col items-center h-4/6 w-5/6 mt-2 p-4 bg-white rounded-3xl shadow overflow-y-auto">
-        <div className="flex flex-col items-center rounded-full px-12 py-6 bg-blue-200 shadow">
+        <div className="flex flex-col items-center rounded-full px-12 py-6 bg-green-50 shadow">
           <p className="text-sm">Your Score</p>
-          <p className="text-5xl animate-pulse text-indigo-900">
+          <p className="text-5xl animate-pulse text-green-900">
             {totalScore(result)} pts
           </p>
         </div>
