@@ -1,4 +1,3 @@
-import { data } from '../data'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
@@ -11,6 +10,7 @@ import LoadingSpinner from './Loading'
 import CountDownTimer from './CountDown'
 import Instructions from './Instructions'
 import CurrentScore from './CurrentScore'
+import FinalScore from './FinalScore'
 const he = require('he')
 const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
@@ -37,8 +37,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-      : (bonus = 0)
+    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+    : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -80,7 +80,7 @@ const Game = () => {
   ]
   const [answerTime, setAnswerTime] = useState(0)
   const [finished, setFinished] = useState(false)
-  const [result, setResult] = useState([{ time: -1, isCorrect: false }])
+  const [result, setResult] = useState([])
 
   useEffect(() => {
     axios
@@ -102,23 +102,9 @@ const Game = () => {
         setLoading(false)
       })
       .catch((error) => {
-        alert(error + '\r The game will be loaded with local data')
-        const quizTemp = data.results.map((question, i) => {
-          const answers = []
-          answers.push({
-            text: he.decode(question.correct_answer),
-            isCorrect: true,
-          })
-          question.incorrect_answers.forEach((wrongAnswer) =>
-            answers.push({ text: he.decode(wrongAnswer), isCorrect: false })
-          )
-          shuffle(answers)
-          return { question: he.decode(question.question), answers }
-        })
-        setQuiz(quizTemp)
-        setLoading(false)
+        console.log(error)
       })
-  }, [])
+  }, [finished])
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -131,10 +117,10 @@ const Game = () => {
     if (next < totalQuestion) {
       setCurrentQuestion(next)
     } else {
-      setCurrentQuestion(-1)
+      setFinished(true)
     }
-    setAnswered(true)
-    setIsPlaying(false)
+    // setAnswered(true)
+    // setIsPlaying(false)
   }
 
   const proceed = () => {
@@ -149,8 +135,20 @@ const Game = () => {
     }
   }
 
+  const reset = () => {
+    setQuiz([])
+    setAnswered(false)
+    setIsPlaying(true)
+    setLoading(true)
+    setCurrentQuestion(0)
+    setCountDown(true)
+    setSkipCount(0)
+    setFinished(false)
+    setResult([])
+  }
+
   return (
-    <>
+    <div className="flex justify-center items-center w-screen h-screen">
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -170,10 +168,28 @@ const Game = () => {
             <CountDownTimer setCountDown={setCountDown} />
           </CountdownCircleTimer>
         </div>
-      ) : currentQuestion !== -1 && answered === false ? (
+      ) : answered ? (
+        <CurrentScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          proceed={proceed}
+        />
+      ) : finished ? (
+        <FinalScore
+          score={score}
+          totalScore={totalScore}
+          result={result}
+          reset={reset}
+          timeLimit={timeLimit}
+        />
+      ) : isPlaying === false && answered === false ? (
+        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+      ) : (
         <div
-          className={`bg-white rounded-xl shadow-xl w-full h-5/6 ${!isPlaying ? 'hidden' : ''
-            }`}
+          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${
+            !isPlaying ? 'hidden' : ''
+          }`}
         >
           <div className="flex p-5 place-content-between">
             <CountdownCircleTimer
@@ -192,7 +208,7 @@ const Game = () => {
             >
               <RenderTime setAnswerTime={setAnswerTime} />
             </CountdownCircleTimer>
-            <PauseButton isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+            <PauseButton setIsPlaying={setIsPlaying} />
           </div>
           <QuestionDiv
             details={quiz[currentQuestion]}
@@ -216,24 +232,8 @@ const Game = () => {
             </div>
           </div>
         </div>
-      ) : finished ? (
-        <div>
-          Results:
-          <ul>
-            {result.map((answer, i) => (
-              <li key={i} id={i}>
-                {answer.time} - {answer.isCorrect ? 'true' : 'false'} -{' '}
-                {score(answer).points} * {score(answer).bonus} ={' '}
-                {score(answer).points * score(answer).bonus}
-              </li>
-            ))}
-          </ul>
-          {totalScore(result)}
-        </div>
-      ) : null}
-      {answered ? <CurrentScore score={score} totalScore={totalScore} result={result} proceed={proceed} /> : null}
-      {!isPlaying && answered === false ? <Instructions isPlaying={true} setIsPlaying={setIsPlaying} /> : null}
-    </>
+      )}
+    </div>
   )
 }
 

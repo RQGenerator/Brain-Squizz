@@ -10,10 +10,6 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: 'Roboto';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(
     116.61deg,
     #7f7fd5 4.28%,
@@ -23,7 +19,4 @@ body {
     #86a8e7 68.14%,
     #91eae4 97.04%
   );
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
