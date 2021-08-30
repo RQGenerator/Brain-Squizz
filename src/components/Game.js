@@ -181,6 +181,7 @@ const Game = () => {
           totalScore={totalScore}
           result={result}
           reset={reset}
+          timeLimit={timeLimit}
         />
       ) : isPlaying === false && answered === false ? (
         <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
