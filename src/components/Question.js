@@ -1,22 +1,11 @@
 import { MainGame } from './QuestionStyle'
-import { CheckSquareTwoTone } from '@ant-design/icons'
-import { Button } from 'antd'
+import AnswersButtons from './AnswersButtons'
 
 const QuestionDiv = ({ details, handleAnswer }) => {
   return (
     <MainGame>
       <p>{details.question}</p>
-      {details.answers.map((answer, i) => (
-        <Button
-          icon={answer.isCorrect && <CheckSquareTwoTone />}
-          key={i}
-          onClick={() => {
-            handleAnswer('answered', answer.isCorrect)
-          }}
-        >
-          {answer.text}
-        </Button>
-      ))}
+      <AnswersButtons answers={details.answers} handleAnswer={handleAnswer} />
     </MainGame>
   )
 }

@@ -119,8 +119,8 @@ const Game = () => {
     } else {
       setFinished(true)
     }
-    // setAnswered(true)
-    // setIsPlaying(false)
+    setAnswered(true)
+    setIsPlaying(false)
   }
 
   const proceed = () => {

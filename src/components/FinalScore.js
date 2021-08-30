@@ -30,7 +30,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
             {totalScore(result)} pts
           </p>
         </div>
-        <div className="flex flex-col w-5/6 h-full items-center rounded-3xl mt-4 pt-2 bg-gray-100 shadow">
+        <div className="flex flex-col w-5/6 h-full items-center rounded-3xl mt-4 pt-2 bg-gray-100 shadow overflow-y-auto">
           <p className="text-lg">Quiz Stats:</p>
           <div className="flex flex-col w-4/6 m-2">
             <ul className="list-disc">
