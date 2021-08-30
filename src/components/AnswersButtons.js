@@ -15,7 +15,7 @@ const AnswersButtons = ({ answers, handleAnswer }) => {
             onClick={() => {
               handleAnswer('answered', answer.isCorrect)
             }}
-            class={`m-4 ${answersColours[i]} border-2 shadow w-2/5 p-5 rounded-lg text-sm md:text-md lg:text-lg transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white`}
+            class={`m-4 ${answersColours[i]} border-2 shadow w-2/5 p-5 rounded-lg text-sm md:text-md lg:text-lg transition delay-300 ease-in hover:bg-indigo-600 hover:text-white`}
           >
             {answer.text}
           </button>
