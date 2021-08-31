@@ -40,11 +40,11 @@ const Leaderboard = () => {
         </div>
         <div className="w-5/6 bg-gray-100 border-b-2 border-indigo-600 text-gray-600 uppercase text-sm rounded-t-xl mt-5">
           <div className="flex justify-around ">
-            <div className="py-3 px-6 text-left w-1/5"></div>
-            <div className="py-3 px-6 text-left"></div>
-            <div className="py-3 px-6 text-center">Name</div>
-            <div className="py-3 px-6 text-center">Points</div>
-            <div className="py-3 px-6 text-center">Difficulty</div>
+            <div className="py-3 px-2 text-left w-1/6">Ranking</div>
+            <div className="py-3 px-2 text-center w-2/6">Name</div>
+            <div className="py-3 px-2 text-center w-1/6">Points</div>
+            <div className="py-3 px-2 text-center w-1/6">Questions</div>
+            <div className="py-3 px-2 text-center w-1/6">Difficulty</div>
           </div>
         </div>
         <div className="overflow-auto w-5/6 h-full">
@@ -78,6 +78,11 @@ const Leaderboard = () => {
                     </td>
                     <td className="py-3 px-6 text-center">
                       <span>{score.score} pts</span>
+                    </td>
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <span>{score.questions}</span>
+                      </div>
                     </td>
                     <td className="py-3 px-6 text-center">
                       <div className="flex item-center justify-center">
