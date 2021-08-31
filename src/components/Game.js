@@ -37,8 +37,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-      : (bonus = 0)
+    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+    : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -148,90 +148,93 @@ const Game = () => {
   }
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen ">
-      {loading ? (
-        <LoadingSpinner />
-      ) : countDown ? (
-        <div className="timer-wrapper">
-          <CountdownCircleTimer
-            isPlaying
-            duration={4}
-            size={180}
-            strokeWidth={8}
-            onComplete={() => setCountDown(false)}
-            colors={[
-              ['#018E42', 0.6],
-              ['#FFA500', 0.2],
-              ['#ed1b72', 0.2],
-            ]}
-          >
-            <CountDownTimer setCountDown={setCountDown} />
-          </CountdownCircleTimer>
-        </div>
-      ) : answered ? (
-        <CurrentScore
-          score={score}
-          totalScore={totalScore}
-          result={result}
-          proceed={proceed}
-        />
-      ) : finished ? (
-        <FinalScore
-          score={score}
-          totalScore={totalScore}
-          result={result}
-          reset={reset}
-          timeLimit={timeLimit}
-        />
-      ) : isPlaying === false && answered === false ? (
-        <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
-      ) : (
-        <div
-          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl bg-opacity-20 w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${!isPlaying ? 'hidden' : ''
-            }`}
-        >
-          <div className="flex p-5  place-content-evenly">
+    <div className="flex justify-center items-center w-screen h-screen">
+      <div className="flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
+        {loading ? (
+          <LoadingSpinner />
+        ) : countDown ? (
+          <div className="timer-wrapper">
             <CountdownCircleTimer
-              key={currentQuestion}
-              isPlaying={isPlaying}
-              duration={timeLimit}
-              size={50}
-              strokeWidth={4}
+              isPlaying
+              duration={4}
+              size={180}
+              strokeWidth={8}
+              onComplete={() => setCountDown(false)}
               colors={[
-                ['#018E42', 0.25],
-                ['#F7D002', 0.25],
-                ['#FFA500', 0.25],
-                ['#BF1A2F'],
+                ['#018E42', 0.6],
+                ['#FFA500', 0.2],
+                ['#ed1b72', 0.2],
               ]}
-              onComplete={() => handleAnswer(0, false)}
             >
-              <RenderTime setAnswerTime={setAnswerTime} />
+              <CountDownTimer setCountDown={setCountDown} />
             </CountdownCircleTimer>
-            <PauseButton setIsPlaying={setIsPlaying} />
           </div>
-          <QuestionDiv
-            details={quiz[currentQuestion]}
-            handleAnswer={handleAnswer}
-            totalQuestion={totalQuestion}
+        ) : answered ? (
+          <CurrentScore
+            score={score}
+            totalScore={totalScore}
+            result={result}
+            proceed={proceed}
           />
-          <div className="flex p-5">
-            <div className="flex-grow pt-5 pr-5">
-              <ProgressBar
-                className="flex"
-                value={currentQuestion + 1}
-                max={totalQuestion}
-              />
+        ) : finished ? (
+          <FinalScore
+            score={score}
+            totalScore={totalScore}
+            result={result}
+            reset={reset}
+            timeLimit={timeLimit}
+          />
+        ) : isPlaying === false && answered === false ? (
+          <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+        ) : (
+          <div
+            className={`flex p-5 place-content-between ${
+              !isPlaying ? 'hidden' : ''
+            }`}
+          >
+            <div className="flex p-5 place-content-between">
+              <CountdownCircleTimer
+                key={currentQuestion}
+                isPlaying={isPlaying}
+                duration={timeLimit}
+                size={50}
+                strokeWidth={4}
+                colors={[
+                  ['#018E42', 0.25],
+                  ['#F7D002', 0.25],
+                  ['#FFA500', 0.25],
+                  ['#BF1A2F'],
+                ]}
+                onComplete={() => handleAnswer(0, false)}
+              >
+                <RenderTime setAnswerTime={setAnswerTime} />
+              </CountdownCircleTimer>
+              <PauseButton setIsPlaying={setIsPlaying} />
             </div>
-            <div className="flex-grow-0">
-              <SkipButton
-                skip={skip}
-                skipInfo={skipInfo}
-                skipCount={skipCount}
-              />
+            <QuestionDiv
+              details={quiz[currentQuestion]}
+              handleAnswer={handleAnswer}
+              totalQuestion={totalQuestion}
+            />
+            <div className="flex p-5">
+              <div className="flex-grow pt-5 pr-5">
+                <ProgressBar
+                  className="flex"
+                  value={currentQuestion + 1}
+                  max={totalQuestion}
+                />
+              </div>
+              <div className="flex-grow-0">
+                <SkipButton
+                  skip={skip}
+                  skipInfo={skipInfo}
+                  skipCount={skipCount}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }
