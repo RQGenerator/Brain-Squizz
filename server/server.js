@@ -18,6 +18,8 @@ app.use(express.json())
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 // })
+
+//Get the 10 highest points registered
 app.get('/api', (req, res) => {
   connection.query(
     'SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10',

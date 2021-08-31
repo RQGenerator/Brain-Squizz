@@ -4,7 +4,6 @@ import SaveScore from './SaveScore'
 
 const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
   const [open, setOpen] = useState(false)
-
   const history = useHistory()
   let slowest = false
   let fastest = false
