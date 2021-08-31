@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
+
 const RenderTime = ({ remainingTime, setAnswerTime }) => {
-  setAnswerTime(remainingTime)
+  useEffect(() => setAnswerTime(remainingTime), [remainingTime, setAnswerTime])
   return (
     <div>
       <p

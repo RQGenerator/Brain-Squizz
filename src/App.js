@@ -7,8 +7,20 @@ import Credits from './components/Credits'
 import Instructions from './components/Instructions'
 import Leaderboard from './components/Leaderboard'
 
+// const callBackendAPI = async () => {
+//   const response = await fetch('/api')
+//   const body = await response.json()
+
+//   if (response.status !== 200) {
+//     throw Error(body.message)
+//   }
+//   return body
+// }
 
 const App = () => {
+  // callBackendAPI()
+  //   .then((res) => console.log(res))
+  //   .catch((err) => console.log(err))
   const [start, setStart] = useState(false)
   useEffect(() => {
     setTimeout(() => {

@@ -4,12 +4,18 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.9.0",
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "antd": "^4.16.6",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
     "he": "^1.2.0",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-countdown-circle-timer": "^2.5.3",
     "react-dom": "^17.0.2",
@@ -27,6 +33,7 @@
     "lint:fix": "eslint --fix .",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
