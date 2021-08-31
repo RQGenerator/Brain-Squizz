@@ -25,6 +25,7 @@ app.get('/api', (req, res) => {
     'SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10',
     (err, result) => {
       if (err) {
+        console.log(err)
         res
           .status(500)
           .send('Error retrieving data from database details: ' + err)

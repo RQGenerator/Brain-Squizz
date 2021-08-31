@@ -3,65 +3,27 @@ import React from 'react'
 import PlayGameButton from './PlayGameButton'
 import LeaderboardButton from './LeaderboardButton'
 import CreditsButton from './CreditsButton'
-import styled from 'styled-components'
 import InstructionsButton from './InstructionsButton'
-
-// margin: 50px 400px 0px;
-const MenuContainer = styled.div`
-  margin-top: 100px;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-
-  background-color: whitesmoke;
-  border-radius: 44px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-`
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 0px 0px 0px;
-
-  @media (max-width: 750px) {
-    padding: 0px 50px 0px;
-  }
-`
-
-const Logoo = styled.img`
-  width: 50%;
-  margin: 30px 0px 0px;
-`
-const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
-const MenuButtonsContainer = styled.div`
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 
 const Menu = () => {
   return (
-    <Container>
-      <MenuContainer>
-        <LogoContainer>
-          <Logoo
+    <div className="flex justify-center items-center w-screen  h-screen mt-8">
+      <div className=" flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl h-5/6 w-11/12 md:w-9/12 ">
+        <div className="flex justify-center items-center -mt-10 mb-3">
+          <img
+            className="w-3/6"
             src={process.env.PUBLIC_URL + '/images/logo_name.png'}
             alt="Logo"
           />
-        </LogoContainer>
-        <MenuButtonsContainer>
+        </div>
+        <div className="flex flex-col h-full mb-4 justify-around items-center w-5/6 overflow-auto">
           <PlayGameButton />
           <LeaderboardButton />
           <InstructionsButton />
           <CreditsButton />
-        </MenuButtonsContainer>
-      </MenuContainer>
-    </Container>
+        </div>
+      </div>
+    </div>
   )
 }
 

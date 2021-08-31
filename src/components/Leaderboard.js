@@ -16,6 +16,7 @@ const Leaderboard = () => {
     const body = await response.json()
 
     if (response.status !== 200) {
+      console.log(response)
       throw Error(body.message)
     }
     return body
@@ -30,13 +31,10 @@ const Leaderboard = () => {
   }, [])
   playerScore.sort((a, b) => b.score - a.score)
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
+    <div className="flex justify-center items-center w-screen h-screen mt-8">
       <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
-        <div className="flex p-5 rounded-2xl bg-white justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
-          <img
-            src={process.env.PUBLIC_URL + '/images/leaderBoard.png'}
-            alt="leaderboard"
-          />
+        <div className="flex p-5 rounded-2xl bg-pink-800 bg-opacity-80 border-2 border-pink-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
+          <p className="text-6xl px-20 text-gray-200">Leaderboard</p>
         </div>
         <div className="w-5/6 bg-gray-100 border-b-2 border-indigo-600 text-gray-600 uppercase text-sm rounded-t-xl mt-5">
           <div className="flex justify-around ">
