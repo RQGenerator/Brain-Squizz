@@ -1,5 +1,5 @@
 
-# Brain Squiz
+# Brain Squizz
 
 ![Brain Squizz](./public/images/screenshot.png)
 
