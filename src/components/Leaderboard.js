@@ -33,7 +33,7 @@ const Leaderboard = () => {
   return (
     <div className="flex justify-center items-center w-screen h-screen mt-8">
       <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
-        <div className="flex p-5 rounded-2xl bg-pink-800 bg-opacity-80 border-2 border-pink-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
+        <div className="flex p-5 rounded-2xl bg-blue-800 bg-opacity-80 border-2 border-blue-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
           <p className="text-6xl px-20 text-gray-200">Leaderboard</p>
         </div>
         <div className="w-5/6 bg-gray-100 border-b-2 border-indigo-600 text-gray-600 uppercase text-sm rounded-t-xl mt-5">
@@ -101,7 +101,7 @@ const Leaderboard = () => {
         </div>
         <div className="w-5/6 flex items-center justify-center m-3">
           <button
-            className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-10 py-3 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
+            className="bg-blue-400 text-blue-100 border-2 border-blue-800 shadow-2xl w-2/6 px-10 py-3 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-blue-400 hover:bg-blue-800 hover:text-white"
             onClick={() => {
               history.push('/')
             }}

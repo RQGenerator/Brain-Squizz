@@ -10,7 +10,7 @@ const Credits = () => {
         <div className="flex p-5 rounded-2xl bg-pink-800 bg-opacity-80 border-2 border-pink-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
           <p className="text-6xl px-20 text-gray-200">Developed by</p>
         </div>
-        <div className="flex  w-5/6 h-full mt-5 place-content-around items-center">
+        <div className="flex  w-5/6 h-full mt-5 justify-around items-center">
           <div className="flex flex-col jutify-center items-center">
             <div
               className="rounded-full shadow-xl h-48 w-48 bg-cover bg-center border-2 border-indigo-200"
