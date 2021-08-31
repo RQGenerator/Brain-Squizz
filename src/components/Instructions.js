@@ -22,6 +22,8 @@ import {
   ButtonExit,
 } from './styles'
 
+import { Link } from 'react-router-dom'
+
 const Instructions = ({
   isPlaying,
   setIsPlaying,
@@ -47,16 +49,15 @@ const Instructions = ({
             />
           </LogoContainer>
           <TextQuiz>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis
+            Which of them is the correct answer ?
           </TextQuiz>
           <BoxAnswer>
-            <Answer1>Lorem ipsum dolor sit amet</Answer1>
-            <Answer2>Lorem ipsum dolor sit amet</Answer2>
+            <Answer1>Answer number 1</Answer1>
+            <Answer2>Answer number 2</Answer2>
           </BoxAnswer>
           <BoxAnswer2>
-            <Answer3>Lorem ipsum dolor sit amet</Answer3>
-            <Answer4>Lorem ipsum dolor sit amet</Answer4>
+            <Answer3>Answer number 3</Answer3>
+            <Answer4>Answer number 4</Answer4>
           </BoxAnswer2>
         </Left>
         <Right>
@@ -74,14 +75,14 @@ const Instructions = ({
           </Text>
 
           {!isPlaying ? (
-            <ButtonReady to="/game">Play a Game</ButtonReady>
+            <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl w-1/4  px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"  > <Link to="/game" >Play a Game </Link></button>
           ) : (
             <div className={'flex items-center'}>
-              <Button2 onClick={() => setIsPlaying(true)}>
+              <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl ml-3 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white" onClick={() => setIsPlaying(true)}>
                 Back to the Game
-              </Button2>
+              </button>
               <br />
-              <ButtonExit to="/">Exit this game</ButtonExit>
+              <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl ml-3 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"  ><Link to="/" >Exit this game</Link></button>
             </div>
           )}
         </Right>

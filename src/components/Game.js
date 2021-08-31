@@ -187,10 +187,10 @@ const Game = () => {
         <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
       ) : (
         <div
-          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${!isPlaying ? 'hidden' : ''
+          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl bg-opacity-20 w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${!isPlaying ? 'hidden' : ''
             }`}
         >
-          <div className="flex p-5 place-content-between">
+          <div className="flex p-5  place-content-evenly">
             <CountdownCircleTimer
               key={currentQuestion}
               isPlaying={isPlaying}

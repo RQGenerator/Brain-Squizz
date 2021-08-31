@@ -139,7 +139,7 @@ const Credits = () => {
           <p>Web Developer Students from Wild Code School </p>
         </Box2>
         <div>
-          <ButtonBackHome>
+          <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl   px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white">
             <Link to="/">
               {' '}
               <ButtonImage
@@ -147,7 +147,7 @@ const Credits = () => {
                 alt="Button back"
               />
             </Link>
-          </ButtonBackHome>
+          </button>
         </div>
       </Container>
     </div>

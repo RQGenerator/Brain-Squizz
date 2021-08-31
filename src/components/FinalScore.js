@@ -77,7 +77,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
       </div>
       <div className="w-5/6 mt-8 mb-8 flex place-content-around">
         <button
-          className="bg-indigo-400 text-indigo-100 border-2 border-indigo-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"
+          className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"
           onClick={() => {
             reset()
           }}
@@ -85,7 +85,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Play Again
         </button>
         <button
-          className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
+          className="bg-pink-600 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
           onClick={() => {
             history.push('/')
           }}

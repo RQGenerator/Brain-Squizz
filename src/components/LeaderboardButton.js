@@ -19,12 +19,15 @@ const LdButton = styled.button`
     font-size: 10px;
   }
 `
+const LinkGame = styled(Link)`
+  color: black;
+`
 
 const LeaderboardButton = () => {
   return (
-    <LdButton>
-      <Link to="/leaderboard">Leaderboard</Link>
-    </LdButton>
+    <button class="bg-pink-500 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/5 my-3 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white">
+      <LinkGame to="/leaderboard">Leaderboard</LinkGame>
+    </button>
   )
 }
 
