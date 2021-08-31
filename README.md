@@ -1,7 +1,7 @@
 
 # Brain Squizz
 
-![Brain Squizz](./public/images/screenshot.png)
+![Brain Squizz](./public/images/ScreenshotMenu.png)
 
 [Wild Code Sschool](http://wildcodeschool.com) Project 2
 
