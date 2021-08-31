@@ -97,7 +97,7 @@ const Leaderboard = () => {
       <Container>
         <TitleLegend>
           <ImageLeaderBoard
-            src={process.env.PUBLIC_URL + '/images/logo.png'}
+            src={process.env.PUBLIC_URL + '/public/images/leaderBoard.png'}
             alt="leaderboard"
           />
         </TitleLegend>

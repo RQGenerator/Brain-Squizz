@@ -22,6 +22,8 @@ import {
   ButtonExit,
 } from './styles'
 
+import { Link } from 'react-router-dom'
+
 const Instructions = ({
   isPlaying,
   setIsPlaying,
@@ -47,37 +49,40 @@ const Instructions = ({
             />
           </LogoContainer>
           <TextQuiz>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis
+            Which of them is the correct answer ?
           </TextQuiz>
           <BoxAnswer>
-            <Answer1>Lorem ipsum dolor sit amet</Answer1>
-            <Answer2>Lorem ipsum dolor sit amet</Answer2>
+            <Answer1>Answer number 1</Answer1>
+            <Answer2>Answer number 2</Answer2>
           </BoxAnswer>
           <BoxAnswer2>
-            <Answer3>Lorem ipsum dolor sit amet</Answer3>
-            <Answer4>Lorem ipsum dolor sit amet</Answer4>
+            <Answer3>Answer number 3</Answer3>
+            <Answer4>Answer number 4</Answer4>
           </BoxAnswer2>
         </Left>
         <Right>
           <SubTitle>How to Play?</SubTitle>
           <Bar></Bar>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit ut aliquam, purus sit amet luctus
-            venenatis
+            <b>1.</b>	For a correct answer you get 100 points.<br />
+            <b>2.</b>	For an incorrect answer you lose 20 points.<br />
+            <b>3.</b>	You have 15 seconds per question to demonstrate your genius skills.<br />
+            <b>4.</b>	If you are quick, you get a bonus:<br />
+            <b>a.</b>  In the first 3,75 sec, you earn a 2x bonus points;<br />
+            <b>b.</b>	In the first 7,50 sec, you earn a 1,75x bonus points;<br />
+            <b>c.</b>	In the first 11,25 sec, you earn a 1,50x bonus points;<br />
+            <b>5.</b>	You can skip three questions per quiz. This won’t punish your score. Good luck and may your brain be in your favor! <br />
           </Text>
 
           {!isPlaying ? (
-            <ButtonReady to="/game">Play a Game</ButtonReady>
+            <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl w-1/4  px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"  > <Link to="/game" >Play a Game </Link></button>
           ) : (
             <div className={'flex items-center'}>
-              <Button2 onClick={() => setIsPlaying(true)}>
+              <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl ml-3 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white" onClick={() => setIsPlaying(true)}>
                 Back to the Game
-              </Button2>
+              </button>
               <br />
-              <ButtonExit to="/">Exit this game</ButtonExit>
+              <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl ml-3 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"  ><Link to="/" >Exit this game</Link></button>
             </div>
           )}
         </Right>

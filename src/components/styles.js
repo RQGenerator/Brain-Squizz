@@ -41,7 +41,7 @@ export const SubTitle = styled.h2`
 export const Bar = styled.div`
   width: 50%;
   height: 10px;
-  background: #00ffff;
+  background: #4F46E5 ;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
@@ -90,6 +90,8 @@ border: 1px solid #000000;
 box-sizing: border-box;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 background: white;
+display: flex;
+justify-content: center
 `
 
 export const BoxAnswer = styled.div`
@@ -117,7 +119,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 export const Answer2 = styled.div`
 background-color: white;
 padding: 20px 20px;
-margin-right: 30px;
 margin-bottom: 20px;
 border-radius: 20px;
 background: #40A9FF;
@@ -137,7 +138,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 export const Answer4 = styled.div`
 background-color: white;
 padding: 20px 20px;
-margin-right: 30px;
 margin-bottom: 20px;
 border-radius: 20px;
 background: #9254DE;

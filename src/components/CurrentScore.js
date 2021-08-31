@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { Button2 } from './styles'
 import Styled from 'styled-components'
 
-const Container = Styled.div`
-  background-color: rgba(0, 0, 0, 0.25);
-  margin-left: 30px;
-  margin-right: 30px;
-  border-radius: 20px;
-  padding: 15px 50px;
-`
 const Title = Styled.h1`
   text-align: center;
   margin-top: 35px;
@@ -59,14 +51,17 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
     //calcular o score total
     const totalPoints = totalScore(result)
     return (
-        <Container>
-            <Title>Your Score: {totalPoints}</Title>
+        <div className="flex items-center flex-col bg-white shadow-2xl rounded-3xl bg-opacity-30 w-11/12 h-5/6 md:w-9/12 md:h-5/6">
+            <div className="flex flex-col items-center rounded-full px-12 py-6 bg-green-50 shadow mt-8">
+                <p className="text-sm">Your Score: </p>
+                <p className="text-5xl animate-pulse text-green-900">{totalPoints}</p>
+            </div>
             <Gif src={gifURL} alt="gif" />
             <p style={{ display: "none" }}>{answerPoints.points} * {answerPoints.bonus}</p>
             <BoxButton>
-                <Button2 onClick={() => { proceed() }} >Continue</Button2>
+                <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl   px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white" onClick={() => { proceed() }} >Continue</button>
             </BoxButton>
-        </Container>
+        </div >
     )
 }
 

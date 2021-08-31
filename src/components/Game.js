@@ -37,8 +37,8 @@ const score = (answer) => {
   answer.time === 0
     ? ([points, bonus] = [-20, 1])
     : answer.time !== -1
-    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-    : (bonus = 0)
+      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+      : (bonus = 0)
   answerScore.points = points
   answerScore.bonus = bonus
   return answerScore
@@ -148,7 +148,7 @@ const Game = () => {
   }
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
+    <div className="flex justify-center items-center w-screen h-screen ">
       {loading ? (
         <LoadingSpinner />
       ) : countDown ? (
@@ -187,11 +187,10 @@ const Game = () => {
         <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
       ) : (
         <div
-          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${
-            !isPlaying ? 'hidden' : ''
-          }`}
+          className={`flex items-center flex-col bg-white shadow-2xl rounded-3xl bg-opacity-20 w-11/12 h-5/6 md:w-9/12 md:h-5/6 ${!isPlaying ? 'hidden' : ''
+            }`}
         >
-          <div className="flex p-5 place-content-between">
+          <div className="flex p-5  place-content-evenly">
             <CountdownCircleTimer
               key={currentQuestion}
               isPlaying={isPlaying}

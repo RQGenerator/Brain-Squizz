@@ -2,6 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+
+
 const Container = Styled.fieldset`
 
 width: 100%;
@@ -67,9 +69,10 @@ padding: 30px 0px;
 `
 
 const ButtonBackHome = Styled.button`
-background: rgba(0, 0, 0, 0.25);
-border-radius: 10px;
-padding: 10px 20xpx;
+background: #00ffff;
+  border-radius: 14px;
+  padding: 4px 30px;
+ 
 `
 
 const ButtonImage = Styled.img`
@@ -136,7 +139,7 @@ const Credits = () => {
           <p>Web Developer Students from Wild Code School </p>
         </Box2>
         <div>
-          <ButtonBackHome>
+          <button className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl   px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white">
             <Link to="/">
               {' '}
               <ButtonImage
@@ -144,7 +147,7 @@ const Credits = () => {
                 alt="Button back"
               />
             </Link>
-          </ButtonBackHome>
+          </button>
         </div>
       </Container>
     </div>
