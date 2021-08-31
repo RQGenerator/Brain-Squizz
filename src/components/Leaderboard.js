@@ -1,47 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const callBackendAPI = async () => {
-  const response = await fetch('/api')
-  const body = await response.json()
-
-  if (response.status !== 200) {
-    throw Error(body.message)
-  }
-  return body
+const difficulty = {
+  Easy: 'bg-green-200 text-green-600',
+  Medium: 'bg-yellow-200 text-yellow-600',
+  Hard: 'bg-purple-200 text-purple-600',
 }
 
 const Leaderboard = () => {
   const history = useHistory()
+  const [playerScore, setPlayerScore] = useState([])
+  const [loading, setLoading] = useState(true)
+  const callBackendAPI = async () => {
+    const response = await fetch('/api')
+    const body = await response.json()
 
-  const [playerScore, setPlayerScore] = useState([
-    {
-      name: 'Jamal',
-      score: 20,
-    },
-
-    {
-      name: 'Alan',
-      score: 59,
-    },
-
-    {
-      name: 'Darius',
-      score: 80,
-    },
-
-    {
-      name: 'Morin',
-      score: 27,
-    },
-    {
-      name: 'Maorbid',
-      score: 72,
-    },
-  ])
-  callBackendAPI()
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    if (response.status !== 200) {
+      throw Error(body.message)
+    }
+    return body
+  }
+  useEffect(() => {
+    callBackendAPI()
+      .then((res) => {
+        setPlayerScore(res)
+        setLoading(false)
+      })
+      .catch((err) => console.log(err))
+  }, [])
   playerScore.sort((a, b) => b.score - a.score)
   return (
     <div className="flex justify-center items-center w-screen h-screen">
@@ -52,51 +38,65 @@ const Leaderboard = () => {
             alt="leaderboard"
           />
         </div>
-        <div class="w-5/6 bg-gray-100 border-b-2 border-indigo-600 text-gray-600 uppercase text-sm rounded-t-xl mt-5">
-          <div class="flex justify-around ">
-            <div class="py-3 px-6 text-left w-1/5"></div>
-            <div class="py-3 px-6 text-left"></div>
-            <div class="py-3 px-6 text-center">Name</div>
-            <div class="py-3 px-6 text-center">Points</div>
-            <div class="py-3 px-6 text-center">Difficulty</div>
+        <div className="w-5/6 bg-gray-100 border-b-2 border-indigo-600 text-gray-600 uppercase text-sm rounded-t-xl mt-5">
+          <div className="flex justify-around ">
+            <div className="py-3 px-6 text-left w-1/5"></div>
+            <div className="py-3 px-6 text-left"></div>
+            <div className="py-3 px-6 text-center">Name</div>
+            <div className="py-3 px-6 text-center">Points</div>
+            <div className="py-3 px-6 text-center">Difficulty</div>
           </div>
         </div>
-        <div className="overflow-auto w-5/6">
-          <table class="min-w-max w-full table-auto rounded-xl">
-            <tbody class="text-gray-600 text-sm font-light">
-              {playerScore.map((score, i) => (
-                <tr class="border-b border-gray-200 bg-gray-200 hover:bg-gray-100">
-                  <td class="py-3 px-6"># {i + 1}</td>
-                  <td class="py-3 px-6">
-                    <div class="flex items-center justify-center">
-                      <img
-                        class="w-12 h-12 rounded-full"
-                        src="https://randomuser.me/api/portraits/men/1.jpg"
-                        alt="avatar"
-                      />
-                    </div>
-                  </td>
-                  <td class="py-3 px-6 text-center">
-                    <div class="flex items-center justify-center">
-                      <span>{score.name}</span>
-                    </div>
-                  </td>
-                  <td class="py-3 px-6 text-center">
-                    <span>{score.score} pts</span>
-                  </td>
-                  <td class="py-3 px-6 text-center">
-                    <div class="flex item-center justify-center">
-                      <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-                        Active
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="overflow-auto w-5/6 h-full">
+          {loading ? (
+            <div className="flex items-center justify-center space-x-2 animate-bounce mt-20">
+              <div className="w-8 h-8 bg-blue-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-green-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-black rounded-full"></div>
+            </div>
+          ) : (
+            <table className="min-w-max w-full table-auto rounded-xl">
+              <tbody className="text-gray-600 text-sm font-light">
+                {playerScore.map((score, i) => (
+                  <tr className="border-b border-gray-200 bg-gray-200 hover:bg-gray-100">
+                    <td className="py-3 px-6"># {i + 1}</td>
+                    <td className="py-3 px-6">
+                      <div className="flex items-center justify-center">
+                        <img
+                          className="w-12 h-12 rounded-full"
+                          src={
+                            process.env.PUBLIC_URL + '/images/' + score.avatar
+                          }
+                          alt="avatar"
+                        />
+                      </div>
+                    </td>
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex items-center justify-center">
+                        <span>{score.name}</span>
+                      </div>
+                    </td>
+                    <td className="py-3 px-6 text-center">
+                      <span>{score.score} pts</span>
+                    </td>
+                    <td className="py-3 px-6 text-center">
+                      <div className="flex item-center justify-center">
+                        <span
+                          className={`${
+                            difficulty[score.difficulty]
+                          } py-1 px-3 rounded-full text-xs`}
+                        >
+                          {score.difficulty}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
-        <div class="w-5/6 flex items-center justify-center m-3">
+        <div className="w-5/6 flex items-center justify-center m-3">
           <button
             className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-10 py-3 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
             onClick={() => {

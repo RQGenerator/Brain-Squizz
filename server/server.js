@@ -19,13 +19,16 @@ app.use(express.json())
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 // })
 app.get('/api', (req, res) => {
-  connection.query('SELECT * FROM movies', (err, result) => {
-    if (err) {
-      res
-        .status(500)
-        .send('Error retrieving data from database details: ' + err)
-    } else {
-      res.json(result)
+  connection.query(
+    'SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10',
+    (err, result) => {
+      if (err) {
+        res
+          .status(500)
+          .send('Error retrieving data from database details: ' + err)
+      } else {
+        res.json(result)
+      }
     }
-  })
+  )
 })
