@@ -1,3 +1,47 @@
+
+# Brain Squiz
+
+![Brain Squizz](./public/images/screenshot.png)
+
+[Wild Code Sschool](http://wildcodeschool.com) Project 2
+
+## 👾 Developed by
+
+Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
+
+Victor Isidoro - [![Twitter Badge](https://img.shields.io/badge/-vtr84-1572B6?style=flat-square&logo=Twitter&logoColor=white&link=https://twitter.com/vtr84)](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-181717?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
+
+Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
+
+## 👾 Functionality
+
+- Quiz Game with random questions
+- After each question the user receive a gif with the score
+- LeaderBoard to see your ranking
+
+
+## 👾 APIs
+
+-[Open Trivia Database](https://opentdb.com/)
+-[GIPHY Developers](https://developers.giphy.com/)
+
+## 👾 Technologies Used
+
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
+![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
+![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
+![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
+![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)
+![NPM](https://www.npmjs.com/)
+![TailWindcss](https://tailwindcss.com/)
+![StyledComponents](https://styled-components.com/)
+![React Countdown Circle Timer](https://www.npmjs.com/package/react-countdown-circle-timer)
+![he](https://github.com/mathiasbynens/he)
+![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
+
+
 <br />
 <p align="center">
   <a href="https://github.com/RQGenerator/Brain-Squizz">
@@ -21,7 +65,7 @@
 </p>
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
+<!-- <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li>
@@ -44,22 +88,8 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details>
+</details> -->
 
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-![Brain Squizz](./public/images/screenshot.png)
-
-### Built With
-
-- [Create React App](https://create-react-app.dev)
-- [TailwindCSS](https://tailwindcss.com)
-- [Ant Design](https://ant.design)
-- [Styled Components](https://styled-components.com)
-- [React Countdown Circle Timer](https://www.npmjs.com/package/react-countdown-circle-timer)
-- [he](https://github.com/mathiasbynens/he)
 
 <!-- GETTING STARTED -->
 
@@ -128,25 +158,3 @@ Contributions are what make the open source community such an amazing place to b
 
 Happy coding 🧑‍💻
 
-<!-- CONTACT -->
-
-## Contact
-
-Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
-
-Victor Isidoro - [![Twitter Badge](https://img.shields.io/badge/-vtr84-1572B6?style=flat-square&logo=Twitter&logoColor=white&link=https://twitter.com/vtr84)](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-181717?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
-
-Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## Technologies Used
-
-![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
-![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
-![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
-![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)
-![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
