@@ -8,6 +8,7 @@ import InstructionsButton from './InstructionsButton'
 
 // margin: 50px 400px 0px;
 const MenuContainer = styled.div`
+  margin-top: 100px;
   justify-content: center;
   display: flex;
   flex-direction: column;
