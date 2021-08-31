@@ -1,6 +1,10 @@
 import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
+import SaveScore from './SaveScore'
 
 const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
+  const [open, setOpen] = useState(false)
+
   const history = useHistory()
   let slowest = false
   let fastest = false
@@ -85,6 +89,14 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Play Again
         </button>
         <button
+          className="bg-green-400 text-green-100 border-2 border-green-800 shadow-2xl px-8 py-4 rounded-full text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-green-400 hover:bg-green-800 hover:text-white"
+          onClick={() => {
+            setOpen(true)
+          }}
+        >
+          Save
+        </button>
+        <button
           className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
           onClick={() => {
             history.push('/')
@@ -93,6 +105,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Back to Menu
         </button>
       </div>
+      <SaveScore save={open} setSave={setOpen} />
     </div>
   )
 }
