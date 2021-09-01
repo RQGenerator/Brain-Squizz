@@ -1,12 +1,12 @@
-const PauseButton = ({ setIsPlaying }) => {
+const PauseButton = ({ isPlaying, setIsPlaying }) => {
   return (
     <button
       onClick={() => {
-        setIsPlaying(false)
+        setIsPlaying(!isPlaying)
       }}
       className={`has-tooltip flex items-center pl-2 pr-2 rounded-full shadow-xs cursor-pointer hover:text-gray-100 bg-gray-200 hover:bg-gray-500`}
     >
-      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-20 -mr-6">
+      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-28 -ml-16">
         Pause game and check the instructions
       </span>
       <svg
