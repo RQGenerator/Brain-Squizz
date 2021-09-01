@@ -28,7 +28,7 @@
 
   },
   "scripts": {
-    "start": "(cd server && node server.js) & npm run dev",
+    "start": "(cd server && node server.js)",
     "dev": "serve -s build -l 3000",
     "build": "craco build",
     "test": "craco test",
