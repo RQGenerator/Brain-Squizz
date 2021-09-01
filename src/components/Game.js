@@ -210,7 +210,7 @@ const Game = () => {
               handleAnswer={handleAnswer}
               totalQuestion={totalQuestion}
             />
-            <div className="flex w-full p-5">
+            <div className="flex w-full justify-between">
               <div className="flex-grow pt-5 pr-5">
                 <ProgressBar
                   className="flex"

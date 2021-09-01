@@ -22,11 +22,12 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
   }
   const penalities = result.filter((answer) => answer.time === 0)
   return (
-    <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
-      <div className="flex rounded-2xl bg-blue-500 justify-center items-center lg:h-20 lg:-mt-10 h-16 w-5/6 -mt-8 shadow-md">
-        <h1 className="text-white text-2xl">Congratulations!</h1>
+    <>
+      {' '}
+      <div className="flex rounded-2xl py-2 bg-blue-500 justify-center items-center lg:h-20 lg:-mt-10 s w-5/6 -mt-8 shadow-md">
+        <h1 className="text-white text-5xl">Congratulations!</h1>
       </div>
-      <div className="flex flex-col items-center h-4/6 w-5/6 mt-2 p-4 bg-white rounded-3xl shadow overflow-y-auto">
+      <div className="flex flex-col items-center h-full w-5/6 mt-2 p-4 bg-white rounded-3xl shadow overflow-y-auto">
         <div className="flex flex-col items-center rounded-full px-12 py-6 bg-green-50 shadow">
           <p className="text-sm">Your Score</p>
           <p className="text-5xl animate-pulse text-green-900">
@@ -80,7 +81,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
       </div>
       <div className="w-5/6 mt-8 mb-8 flex place-content-around">
         <button
-          className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"
+          className="bg-green-600 text-green-100 border-2 border-green-800 shadow-2xl w-2/6 px-10 py-3 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-green-400 hover:bg-green-800 hover:text-white"
           onClick={() => {
             reset()
           }}
@@ -88,7 +89,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Play Again
         </button>
         <button
-          className="bg-green-400 text-green-100 border-2 border-green-800 shadow-2xl px-8 py-4 rounded-full text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-green-400 hover:bg-green-800 hover:text-white"
+          className="bg-purple-400 text-purple-100 border-2 border-purple-800 shadow-2xl px-10 py-3 rounded-full text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-purple-400 hover:bg-purple-800 hover:text-white"
           onClick={() => {
             setOpen(true)
           }}
@@ -96,7 +97,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Save
         </button>
         <button
-          className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
+          className="bg-pink-400 text-pink-100 border-2 border-pink-800 shadow-2xl w-2/6 px-10 py-3 rounded-lg text-xs md:text-lg lg:text-xl transition delay-300 ease-in hover:border-pink-400 hover:bg-pink-800 hover:text-white"
           onClick={() => {
             history.push('/')
           }}
@@ -105,7 +106,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
         </button>
       </div>
       <SaveScore save={open} setSave={setOpen} />
-    </div>
+    </>
   )
 }
 
