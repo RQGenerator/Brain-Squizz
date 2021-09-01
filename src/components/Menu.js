@@ -7,7 +7,7 @@ import InstructionsButton from './InstructionsButton'
 
 const Menu = () => {
   return (
-    <div className="flex justify-center items-center w-screen  h-screen mt-8">
+    <div className="flex justify-center items-center w-screen  h-screen">
       <div className=" flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl h-5/6 w-11/12 md:w-9/12 ">
         <div className="flex justify-center items-center -mt-10 mb-3">
           <img

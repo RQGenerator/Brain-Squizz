@@ -23,7 +23,6 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
   const penalities = result.filter((answer) => answer.time === 0)
   return (
     <>
-      {' '}
       <div className="flex rounded-2xl py-2 bg-blue-500 justify-center items-center lg:h-20 lg:-mt-10 s w-5/6 -mt-8 shadow-md">
         <h1 className="text-white text-5xl">Congratulations!</h1>
       </div>

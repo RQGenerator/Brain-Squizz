@@ -5,7 +5,7 @@ const Credits = () => {
   const history = useHistory()
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen mt-8 ">
+    <div className="flex justify-center items-center w-screen h-screen ">
       <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12">
         <div className="flex p-5 rounded-2xl bg-pink-800 bg-opacity-80 border-2 border-pink-600 justify-center items-center lg:-mt-10 -mt-8 shadow-md">
           <p className="text-6xl px-20 text-gray-200">Developed by</p>

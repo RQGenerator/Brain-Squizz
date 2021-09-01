@@ -31,7 +31,7 @@ const Leaderboard = () => {
   }, [])
   playerScore.sort((a, b) => b.score - a.score)
   return (
-    <div className="flex justify-center items-center w-screen h-screen mt-8">
+    <div className="flex justify-center items-center w-screen h-screen">
       <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
         <div className="flex p-5 rounded-2xl bg-blue-800 bg-opacity-80 border-2 border-blue-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
           <p className="text-6xl px-20 text-gray-200">Leaderboard</p>

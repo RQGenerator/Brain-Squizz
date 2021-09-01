@@ -226,11 +226,11 @@ const Game = () => {
                 />
               </div>
             </div>
-            {/* {isPlaying === false && answered === false ? (
+            {isPlaying === false && answered === false ? (
               <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
             ) : (
               ''
-            )} */}
+            )}
           </div>
         )}
       </div>
