@@ -4,7 +4,7 @@ const SkipButton = ({ skip, skipInfo, skipCount }) => {
       onClick={skip}
       className={`has-tooltip flex items-center p-3 rounded-full shadow-xs cursor-pointer ${skipInfo[skipCount].class}`}
     >
-      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-20 -ml-10">
+      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-10 -ml-10">
         {skipInfo[skipCount].text}
       </span>
       <svg

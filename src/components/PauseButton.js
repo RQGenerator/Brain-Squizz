@@ -6,7 +6,7 @@ const PauseButton = ({ isPlaying, setIsPlaying }) => {
       }}
       className={`has-tooltip flex items-center p-3 rounded-full shadow-xs cursor-pointer hover:text-gray-100 bg-gray-200 hover:bg-gray-500`}
     >
-      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-28 -ml-16">
+      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-black mt-12 -ml-16">
         Pause game and check the instructions
       </span>
       <svg
