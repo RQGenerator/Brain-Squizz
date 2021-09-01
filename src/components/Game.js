@@ -78,7 +78,7 @@ const Game = () => {
       text: 'No more skip available',
     },
   ]
-  const [answerTime, setAnswerTime] = useState(0)
+  const [answerTime, setAnswerTime] = useState(timeLimit - 1)
   const [finished, setFinished] = useState(false)
   const [result, setResult] = useState([])
 
@@ -149,7 +149,7 @@ const Game = () => {
 
   return (
     <div className="flex justify-center items-center w-screen h-screen">
-      <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 items-center justify-center">
+      <div className="flex p-2 justify-center items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
         {loading ? (
           <LoadingSpinner />
         ) : countDown ? (
@@ -184,15 +184,9 @@ const Game = () => {
             reset={reset}
             timeLimit={timeLimit}
           />
-        ) : isPlaying === false && answered === false ? (
-          <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
         ) : (
-          <div
-            className={`flex p-5 place-content-between ${
-              !isPlaying ? 'hidden' : ''
-            }`}
-          >
-            <div className="flex p-5 place-content-between">
+          <div className="flex flex-col w-5/6 h-full py-2 justify-center items-center">
+            <div className="flex w-full justify-between">
               <CountdownCircleTimer
                 key={currentQuestion}
                 isPlaying={isPlaying}
@@ -209,14 +203,14 @@ const Game = () => {
               >
                 <RenderTime setAnswerTime={setAnswerTime} />
               </CountdownCircleTimer>
-              <PauseButton setIsPlaying={setIsPlaying} />
+              <PauseButton setIsPlaying={setIsPlaying} isPlaying={isPlaying} />
             </div>
             <QuestionDiv
               details={quiz[currentQuestion]}
               handleAnswer={handleAnswer}
               totalQuestion={totalQuestion}
             />
-            <div className="flex p-5">
+            <div className="flex w-full p-5">
               <div className="flex-grow pt-5 pr-5">
                 <ProgressBar
                   className="flex"
@@ -232,6 +226,11 @@ const Game = () => {
                 />
               </div>
             </div>
+            {/* {isPlaying === false && answered === false ? (
+              <Instructions isPlaying={true} setIsPlaying={setIsPlaying} />
+            ) : (
+              ''
+            )} */}
           </div>
         )}
       </div>

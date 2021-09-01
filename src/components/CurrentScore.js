@@ -3,34 +3,34 @@ import axios from 'axios'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 const CurrentScore = ({ score, totalScore, result, proceed }) => {
-  let searchTerm = 'looking'
-  const randomNum = Math.floor(Math.random() * 4995)
   const [gifURL, setGifURL] = useState(
     process.env.PUBLIC_URL + '/images/default_gif.gif'
   )
   const lastAnswer = result.length - 1
-  result[lastAnswer].isCorrect
-    ? (searchTerm = 'success')
-    : result[lastAnswer].time === -1
-    ? (searchTerm = 'relieved')
-    : (searchTerm = 'failed')
-
-  const apiURL =
-    'https://api.giphy.com/v1/gifs/search?api_key=5RC9BRH88oW9wljD8azTzWG6mamn5x32&q=' +
-    searchTerm +
-    '&limit=1&offset=' +
-    randomNum +
-    '&rating=g&lang=en'
+  console.log(result)
   useEffect(() => {
+    let searchTerm = 'looking'
+    const randomNum = Math.floor(Math.random() * 10)
+    result[lastAnswer].isCorrect
+      ? (searchTerm = 'success')
+      : result[lastAnswer].time === -1
+      ? (searchTerm = 'relieved')
+      : (searchTerm = 'failed')
     axios
-      .get(apiURL)
+      .get(
+        'https://api.giphy.com/v1/gifs/search?api_key=5RC9BRH88oW9wljD8azTzWG6mamn5x32&q=' +
+          searchTerm +
+          '&limit=1&offset=' +
+          randomNum +
+          '&rating=g&lang=en'
+      )
       .then((response) => {
         setGifURL(response.data.data[0].images.original.url)
       })
       .catch((error) => {
         console.log(error)
       })
-  }, [apiURL])
+  }, [lastAnswer, result])
 
   //calcular o score da ultima resposta
   const answerPoints = score(result[lastAnswer])
@@ -42,7 +42,7 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
       <div className="overflow-auto w-full h-full flex flex-col items-center">
         <div className="flex flex-col items-center rounded-full w-2/6 px-12 py-3 bg-green-50 shadow mt-4">
           <p className="text-sm">Score: </p>
-          <p className="text-5xl animate-pulse text-green-900">
+          <p className="text-sm transform scale-150 animate-pulse text-green-900">
             {answerPoints.points * answerPoints.bonus}
           </p>
         </div>
