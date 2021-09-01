@@ -7,7 +7,6 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
     process.env.PUBLIC_URL + '/images/default_gif.gif'
   )
   const lastAnswer = result.length - 1
-  console.log(result)
   useEffect(() => {
     let searchTerm = 'looking'
     const randomNum = Math.floor(Math.random() * 10)
@@ -15,7 +14,7 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
       ? (searchTerm = 'success')
       : result[lastAnswer].time === -1
       ? (searchTerm = 'relieved')
-      : (searchTerm = 'failed')
+      : (searchTerm = 'try%20again')
     axios
       .get(
         'https://api.giphy.com/v1/gifs/search?api_key=5RC9BRH88oW9wljD8azTzWG6mamn5x32&q=' +
@@ -32,24 +31,24 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
       })
   }, [lastAnswer, result])
 
-  //calcular o score da ultima resposta
   const answerPoints = score(result[lastAnswer])
-  //calcular o score total
   const totalPoints = totalScore(result)
 
   return (
     <div className="flex items-center flex-col w-full h-full">
       <div className="overflow-auto w-full h-full flex flex-col items-center">
-        <div className="flex flex-col items-center rounded-full w-2/6 px-12 py-3 bg-green-50 shadow mt-4">
+        <div className="flex flex-col items-center rounded-full w-1/6 px-12 py-3 bg-green-50 shadow mt-4">
           <p className="text-sm">Score: </p>
-          <p className="text-sm transform scale-150 animate-pulse text-green-900">
+          <p className="text-2xl transform scale-150 animate-pulse text-green-900">
             {answerPoints.points * answerPoints.bonus}
           </p>
         </div>
-        <div className="flex flex-col justify-around items-center">
-          <img className="rounded-lg  mt-5 w-64" src={gifURL} alt="gif" />
-          <p className="text-sm p-2">Total Score:</p>
-          <p className="text-lg p-2">{totalPoints}</p>
+        <div className="flex flex-col justify-between items-center">
+          <img className="rounded-lg mt-5 h-60" src={gifURL} alt="gif" />
+          <div className="flex items-center rounded-full px-12 py-3 bg-green-50 shadow mt-6">
+            <p className="text-sm p-2">Total Score:</p>
+            <p className="text-xl p-2">{totalPoints}</p>
+          </div>
         </div>
       </div>
       <div className="w-5/6 flex mb-2 items-center justify-center">

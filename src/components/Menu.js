@@ -11,12 +11,12 @@ const Menu = () => {
       <div className=" flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl h-5/6 w-11/12 md:w-9/12 ">
         <div className="flex justify-center items-center -mt-10 mb-3">
           <img
-            className="w-3/6"
+            className="w-4/6"
             src={process.env.PUBLIC_URL + '/images/logo_name.png'}
             alt="Logo"
           />
         </div>
-        <div className="flex flex-col h-full my-4 justify-between items-center w-5/6 overflow-auto">
+        <div className="flex flex-col h-3/6 my-4 justify-between items-center w-5/6 overflow-auto">
           <PlayGameButton />
           <LeaderboardButton />
           <InstructionsButton />

@@ -137,7 +137,11 @@ const Credits = () => {
           <div className="p-5 text-sm">
             <p>
               Web Developer students @{' '}
-              <a href="https://www.wildcodeschool.com/en-GB">
+              <a
+                href="https://www.wildcodeschool.com/en-GB"
+                rel="noreferrer"
+                target="_blank"
+              >
                 Wild Code School{' '}
               </a>
             </p>
