@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 const RenderTime = ({ remainingTime, setAnswerTime }) => {
   useEffect(() => setAnswerTime(remainingTime), [remainingTime, setAnswerTime])
   return (
-    <div>
-      <p
+    <div className="flex">
+      <span
+        className="absolute inline-flex animate-ping"
         style={{
           fontFamily: 'Montserrat',
           fontSize: 18,
@@ -14,7 +15,19 @@ const RenderTime = ({ remainingTime, setAnswerTime }) => {
         }}
       >
         {remainingTime}
-      </p>
+      </span>
+      <span
+        className="relative inline flex"
+        style={{
+          fontFamily: 'Montserrat',
+          fontSize: 18,
+          fontWeight: 600,
+          margin: 0,
+          paddingBottom: 0,
+        }}
+      >
+        {remainingTime}
+      </span>
     </div>
   )
 }
