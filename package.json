@@ -1,6 +1,6 @@
 {
   "name": "brain-squizz",
-  "version": "0.1",
+  "version": "1",
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.9.0",
@@ -25,7 +25,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "(cd server && node server.js) & npm run dev",
+    "dev" : "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
