@@ -196,22 +196,25 @@ const Game = ({ difficulty, questions }) => {
         ) : (
           <div className="flex flex-col w-5/6 h-full py-2 justify-center items-center">
             <div className="flex w-full justify-between">
-              <CountdownCircleTimer
-                key={currentQuestion}
-                isPlaying={isPlaying}
-                duration={timeLimit}
-                size={50}
-                strokeWidth={4}
-                colors={[
-                  ['#018E42', 0.25],
-                  ['#F7D002', 0.25],
-                  ['#FFA500', 0.25],
-                  ['#BF1A2F'],
-                ]}
-                onComplete={() => handleAnswer(0, false)}
-              >
-                <RenderTime setAnswerTime={setAnswerTime} />
-              </CountdownCircleTimer>
+              <div className="bg-gray-200 rounded-full">
+                <CountdownCircleTimer
+                  className="bg-white"
+                  key={currentQuestion}
+                  isPlaying={isPlaying}
+                  duration={timeLimit}
+                  size={60}
+                  strokeWidth={5}
+                  colors={[
+                    ['#199906', 0.25],
+                    ['#d8ce08', 0.25],
+                    ['#d86902', 0.25],
+                    ['#BF1A2F'],
+                  ]}
+                  onComplete={() => handleAnswer(0, false)}
+                >
+                  <RenderTime setAnswerTime={setAnswerTime} />
+                </CountdownCircleTimer>
+              </div>
               <PauseButton setIsPlaying={setIsPlaying} isPlaying={isPlaying} />
             </div>
             <QuestionDiv
