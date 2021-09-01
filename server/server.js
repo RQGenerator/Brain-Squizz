@@ -20,7 +20,7 @@ app.use(express.json())
 // })
 
 //Get the 10 highest points registered
-app.get('/api', (req, res) => {
+app.get('/api/', (req, res) => {
   connection.query(
     'SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10',
     (err, result) => {
@@ -30,7 +30,23 @@ app.get('/api', (req, res) => {
           .status(500)
           .send('Error retrieving data from database details: ' + err)
       } else {
-        res.json(result)
+        res.status(200).json(result)
+      }
+    }
+  )
+})
+//Register new score to leaderboard
+app.post('/api/', (req, res) => {
+  const { avatar, name, difficulty, questions, score } = req.query
+  connection.query(
+    'INSERT INTO leaderboard (avatar, name, difficulty, questions, score) VALUES (?,?,?,?,?)',
+    [avatar, name, difficulty, questions, score],
+    (err, result) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send('Error saving data from database. details: ' + err)
+      } else {
+        res.status(200).json(result)
       }
     }
   )

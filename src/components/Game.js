@@ -12,7 +12,6 @@ import Instructions from './Instructions'
 import CurrentScore from './CurrentScore'
 import FinalScore from './FinalScore'
 const he = require('he')
-const timeLimit = 15
 const bonuses = [1, 1.5, 1.75, 2]
 
 const shuffle = (array) => {
@@ -27,31 +26,37 @@ const shuffle = (array) => {
   return array
 }
 
-const score = (answer) => {
-  let answerScore = {}
-  let points = 0
-  let bonus = 1
-  if (answer.isCorrect) {
-    points = 100
+const difficultyTime = {
+  Easy: 30,
+  Medium: 20,
+  Hard: 10,
+}
+
+const Game = ({ difficulty, questions }) => {
+  const timeLimit = difficultyTime[difficulty]
+  const score = (answer) => {
+    let answerScore = {}
+    let points = 0
+    let bonus = 1
+    if (answer.isCorrect) {
+      points = 100
+    }
+    answer.time === 0
+      ? ([points, bonus] = [-20, 1])
+      : answer.time !== -1
+      ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
+      : (bonus = 0)
+    answerScore.points = points
+    answerScore.bonus = bonus
+    return answerScore
   }
-  answer.time === 0
-    ? ([points, bonus] = [-20, 1])
-    : answer.time !== -1
-    ? (bonus = bonuses[Math.ceil(answer.time / (timeLimit / 4)) - 1])
-    : (bonus = 0)
-  answerScore.points = points
-  answerScore.bonus = bonus
-  return answerScore
-}
 
-const totalScore = (results) => {
-  let totalScore = results
-    .map((answer) => score(answer).points * score(answer).bonus)
-    .reduce((total, value) => total + value, 0)
-  return totalScore
-}
-
-const Game = () => {
+  const totalScore = (results) => {
+    let totalScore = results
+      .map((answer) => score(answer).points * score(answer).bonus)
+      .reduce((total, value) => total + value, 0)
+    return totalScore
+  }
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [loading, setLoading] = useState(true)
   const [quiz, setQuiz] = useState([])
@@ -84,7 +89,9 @@ const Game = () => {
 
   useEffect(() => {
     axios
-      .get('https://opentdb.com/api.php?amount=10&difficulty=easy')
+      .get(
+        'https://opentdb.com/api.php?amount=' + questions + '&difficulty=easy'
+      )
       .then((response) => {
         const quizTemp = response.data.results.map((question, i) => {
           const answers = []
@@ -104,7 +111,7 @@ const Game = () => {
       .catch((error) => {
         console.log(error)
       })
-  }, [finished])
+  }, [finished, questions])
 
   const handleAnswer = (where, answer) => {
     const next = currentQuestion + 1
@@ -183,6 +190,8 @@ const Game = () => {
             result={result}
             reset={reset}
             timeLimit={timeLimit}
+            difficulty={difficulty}
+            questions={questions}
           />
         ) : (
           <div className="flex flex-col w-5/6 h-full py-2 justify-center items-center">

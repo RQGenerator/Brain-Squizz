@@ -22,7 +22,7 @@ const App = () => {
           {start ? <Menu /> : <Splash />}
         </Route>
         <Route path="/game">
-          <Game />
+          <Game difficulty="Easy" questions={10} />
         </Route>
         <Route path="/instructions">
           <Instructions isPlaying={false} />

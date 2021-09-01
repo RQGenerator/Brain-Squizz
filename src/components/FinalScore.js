@@ -2,7 +2,15 @@ import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import SaveScore from './SaveScore'
 
-const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
+const FinalScore = ({
+  score,
+  totalScore,
+  result,
+  reset,
+  timeLimit,
+  difficulty,
+  questions,
+}) => {
   const [open, setOpen] = useState(false)
   const history = useHistory()
   let slowest = false
@@ -21,6 +29,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
     fastest = timeLimit - time[0].time
   }
   const penalities = result.filter((answer) => answer.time === 0)
+  const finalScore = totalScore(result)
   return (
     <>
       <div className="flex p-5 rounded-2xl bg-blue-800 bg-opacity-80 border-2 border-blue-600 justify-center items-center  lg:-mt-10 -mt-8 shadow-md">
@@ -30,7 +39,7 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
         <div className="flex flex-col items-center rounded-full px-12 py-6 bg-green-50 shadow">
           <p className="text-sm">Your Score</p>
           <p className="text-5xl animate-pulse text-green-900">
-            {totalScore(result)} pts
+            {finalScore} pts
           </p>
         </div>
         <div className="flex flex-col w-5/6 h-full items-center rounded-3xl mt-4 pt-2 bg-gray-100 shadow overflow-y-auto">
@@ -104,7 +113,14 @@ const FinalScore = ({ score, totalScore, result, reset, timeLimit }) => {
           Back to Menu
         </button>
       </div>
-      <SaveScore save={open} setSave={setOpen} />
+      <SaveScore
+        difficulty={difficulty}
+        questions={questions}
+        score={finalScore}
+        save={open}
+        setSave={setOpen}
+        reset={reset}
+      />
     </>
   )
 }

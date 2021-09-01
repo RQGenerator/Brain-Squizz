@@ -1,29 +1,42 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition, Popover } from '@headlessui/react'
 import { SaveAsIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const avatars = [
-  { name: 'avatar1', url: '/images/avatar1.png' },
-  { name: 'avatar2', url: '/images/avatar2.png' },
-  { name: 'avatar3', url: '/images/avatar3.png' },
-  { name: 'avatar4', url: '/images/avatar4.png' },
-  { name: 'avatar5', url: '/images/avatar5.png' },
-  { name: 'avatar6', url: '/images/avatar6.png' },
-  { name: 'avatar7', url: '/images/avatar7.png' },
-  { name: 'avatar8', url: '/images/avatar8.png' },
-  { name: 'avatar9', url: '/images/avatar9.png' },
-  { name: 'avatar10', url: '/images/avatar10.png' },
+  { name: 'avatar1', url: 'avatar1.png' },
+  { name: 'avatar2', url: 'avatar2.png' },
+  { name: 'avatar3', url: 'avatar3.png' },
+  { name: 'avatar4', url: 'avatar4.png' },
+  { name: 'avatar5', url: 'avatar5.png' },
+  { name: 'avatar6', url: 'avatar6.png' },
+  { name: 'avatar7', url: 'avatar7.png' },
+  { name: 'avatar8', url: 'avatar8.png' },
+  { name: 'avatar9', url: 'avatar9.png' },
+  { name: 'avatar10', url: 'avatar10.png' },
 ]
 
-const SaveScore = ({ save, setSave }) => {
-  const handleSave = (action) => {
-    alert(action + avatar + name)
-  }
+const SaveScore = ({ save, setSave, difficulty, score, questions, reset }) => {
+  const history = useHistory()
   const cancelButtonRef = useRef(null)
   const [avatar, setAvatar] = useState(avatars[0].url)
   const [name, setName] = useState('')
+  const handleSave = (action) => {
+    axios
+      .post('/api', null, {
+        params: { avatar, name, difficulty, questions, score },
+      })
+      .then((res) => {
+        if (action === 'new') {
+          reset()
+        } else {
+          history.push('/leaderboard')
+        }
+      })
+      .catch((err) => console.log(err))
+  }
   return (
     <Transition.Root show={save} as={Fragment}>
       <Dialog
@@ -88,7 +101,7 @@ const SaveScore = ({ save, setSave }) => {
                       >
                         <img
                           className="h-12 w-12"
-                          src={process.env.PUBLIC_URL + avatar}
+                          src={process.env.PUBLIC_URL + '/images/' + avatar}
                           alt="avatar"
                         />
                         <ChevronDownIcon
@@ -118,7 +131,11 @@ const SaveScore = ({ save, setSave }) => {
                                 >
                                   <img
                                     alt={item.name}
-                                    src={process.env.PUBLIC_URL + item.url}
+                                    src={
+                                      process.env.PUBLIC_URL +
+                                      '/images/' +
+                                      item.url
+                                    }
                                     className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                                   />
                                 </button>
@@ -143,14 +160,14 @@ const SaveScore = ({ save, setSave }) => {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => handleSave('Start a new game')}
+                  onClick={() => handleSave('new')}
                 >
                   Save and Start a new Game
                 </button>
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purle-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => handleSave('Go to leaderboard')}
+                  onClick={() => handleSave('leaderboard')}
                 >
                   Save
                 </button>
