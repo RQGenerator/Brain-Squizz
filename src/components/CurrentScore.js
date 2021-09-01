@@ -1,20 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import Styled from 'styled-components'
-
-const Gif = Styled.img`
-width: 500px;
-height: 400px;
-padding: 50px 0px;
-`
-
-const BoxButton = Styled.div`
-display: flex;
-justify-content: flex-end;
-`
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 const CurrentScore = ({ score, totalScore, result, proceed }) => {
   let searchTerm = 'looking'
+  const randomNum = Math.floor(Math.random() * 4995)
   const [gifURL, setGifURL] = useState(
     process.env.PUBLIC_URL + '/images/default_gif.gif'
   )
@@ -23,15 +13,13 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
     ? (searchTerm = 'success')
     : result[lastAnswer].time === -1
     ? (searchTerm = 'relieved')
-    : result[lastAnswer].time === 0
-    ? (searchTerm = 'snail')
     : (searchTerm = 'failed')
-  //obter gif especifico consoante a resposta
+
   const apiURL =
     'https://api.giphy.com/v1/gifs/search?api_key=5RC9BRH88oW9wljD8azTzWG6mamn5x32&q=' +
     searchTerm +
     '&limit=1&offset=' +
-    lastAnswer +
+    randomNum +
     '&rating=g&lang=en'
   useEffect(() => {
     axios
@@ -43,30 +31,49 @@ const CurrentScore = ({ score, totalScore, result, proceed }) => {
         console.log(error)
       })
   }, [apiURL])
+
   //calcular o score da ultima resposta
   const answerPoints = score(result[lastAnswer])
   //calcular o score total
   const totalPoints = totalScore(result)
+
   return (
-    <div className="flex items-center flex-col bg-white shadow-2xl rounded-3xl bg-opacity-30 w-11/12 h-5/6 md:w-9/12 md:h-5/6">
-      <div className="flex flex-col items-center rounded-full px-12 py-6 bg-green-50 shadow mt-8">
-        <p className="text-sm">Your Score: </p>
-        <p className="text-5xl animate-pulse text-green-900">{totalPoints}</p>
+    <div className="flex items-center flex-col w-full h-full">
+      <div className="overflow-auto w-full h-full flex flex-col items-center">
+        <div className="flex flex-col items-center rounded-full w-2/6 px-12 py-3 bg-green-50 shadow mt-4">
+          <p className="text-sm">Score: </p>
+          <p className="text-5xl animate-pulse text-green-900">
+            {answerPoints.points * answerPoints.bonus}
+          </p>
+        </div>
+        <div className="flex flex-col justify-around items-center">
+          <img className="rounded-lg  mt-5 w-64" src={gifURL} alt="gif" />
+          <p className="text-sm p-2">Total Score:</p>
+          <p className="text-lg p-2">{totalPoints}</p>
+        </div>
       </div>
-      <Gif src={gifURL} alt="gif" />
-      <p style={{ display: 'none' }}>
-        {answerPoints.points} * {answerPoints.bonus}
-      </p>
-      <BoxButton>
+      <div className="w-5/6 flex mb-2 items-center justify-center">
         <button
-          className="bg-indigo-600 text-indigo-100 border-2 border-indigo-800 shadow-2xl   px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-indigo-400 hover:bg-indigo-800 hover:text-white"
+          className="flex items-center justify-between bg-green-600 text-green-100 border-2 border-green-800 shadow-2xl px-8 py-4 rounded-lg text-xs md:text-lg lg:text-xs transition delay-300 ease-in hover:border-green-400 hover:bg-green-800 hover:text-white"
           onClick={() => {
             proceed()
           }}
         >
-          Continue
+          <CountdownCircleTimer
+            isPlaying
+            duration={5}
+            size={20}
+            strokeWidth={1}
+            onComplete={() => {
+              proceed()
+            }}
+            colors={[['#FFFFFF', 0.6]]}
+          >
+            {({ remainingTime }) => remainingTime}
+          </CountdownCircleTimer>
+          <p className="px-2">Continue</p>
         </button>
-      </BoxButton>
+      </div>
     </div>
   )
 }

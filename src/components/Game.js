@@ -119,8 +119,8 @@ const Game = () => {
     } else {
       setFinished(true)
     }
-    // setAnswered(true)
-    // setIsPlaying(false)
+    setAnswered(true)
+    setIsPlaying(false)
   }
 
   const proceed = () => {
@@ -149,7 +149,7 @@ const Game = () => {
 
   return (
     <div className="flex justify-center items-center w-screen h-screen">
-      <div className="flex items-center flex-col bg-white shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6">
+      <div className="flex items-center flex-col bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl w-11/12 h-5/6 md:w-9/12 md:h-5/6 items-center justify-center">
         {loading ? (
           <LoadingSpinner />
         ) : countDown ? (

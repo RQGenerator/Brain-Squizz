@@ -13,21 +13,11 @@ const CountDown = ({ remainingTime, setCountDown }) => {
   } else {
     isNewTimeFirstTick.current = false
   }
-
   const isTimeUp = isNewTimeFirstTick.current
-  if (remainingTime === 4) {
-    return (
-      <div className="time-wrapper">
-        <div key={remainingTime} className={`time ${isTimeUp ? 'up' : ''}`}>
-          Ready?!
-        </div>
-      </div>
-    )
-  }
   return (
     <div className="time-wrapper">
       <div key={remainingTime} className={`time ${isTimeUp ? 'up' : ''}`}>
-        {remainingTime}
+        {remainingTime === 4 ? 'Ready?!' : remainingTime}
       </div>
       {prevTime.current !== null && (
         <div

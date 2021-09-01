@@ -16,7 +16,7 @@ const Menu = () => {
             alt="Logo"
           />
         </div>
-        <div className="flex flex-col h-full mb-4 justify-around items-center w-5/6 overflow-auto">
+        <div className="flex flex-col h-full my-4 justify-between items-center w-5/6 overflow-auto">
           <PlayGameButton />
           <LeaderboardButton />
           <InstructionsButton />
