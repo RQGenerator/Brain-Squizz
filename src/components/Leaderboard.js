@@ -56,7 +56,10 @@ const Leaderboard = () => {
             <table className="min-w-max w-full table-auto rounded-xl">
               <tbody className="text-gray-600 text-sm font-light">
                 {playerScore.map((score, i) => (
-                  <tr className="border-b border-gray-200 bg-gray-200 hover:bg-gray-100">
+                  <tr
+                    key={i}
+                    className="border-b border-gray-200 bg-gray-200 hover:bg-gray-100"
+                  >
                     <td className="py-3 px-6"># {i + 1}</td>
                     <td className="py-3 px-6">
                       <div className="flex items-center justify-center">
