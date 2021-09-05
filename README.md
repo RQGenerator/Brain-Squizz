@@ -1,17 +1,16 @@
-
 # Brain Squizz
 
 ![Brain Squizz](./public/images/ScreenshotMenu.png)
 
-[Wild Code Sschool](http://wildcodeschool.com) Project 2
-
 ## 👾 Developed by
 
-Guilherme Rodrigues - [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) - [![Github Badge](https://img.shields.io/badge/-Guilhaxr-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
+- Guilherme Rodrigues
+  [![Linkedin Badge](https://img.shields.io/badge/-guilhermerodrigues-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-rodrigues-029344162/)](https://www.linkedin.com/in/guilherme-rodrigues-029344162/) [![Github Badge](https://img.shields.io/badge/-Guilhaxr-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Guilhaxr)](https://github.com/Guilhaxr)
 
-Victor Isidoro - [![Twitter Badge](https://img.shields.io/badge/-vtr84-1572B6?style=flat-square&logo=Twitter&logoColor=white&link=https://twitter.com/vtr84)](https://twitter.com/vtr84) - [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/) - [![Github Badge](https://img.shields.io/badge/-vtr84-181717?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)
+- Victor Isidoro
+  [![Linkedin Badge](https://img.shields.io/badge/-victorisidoro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorisidoro/)](https://www.linkedin.com/in/victorisidoro/)[![Github Badge](https://img.shields.io/badge/-vtr84-181717?style=flat-square&logo=Github&logoColor=white&link=https://www.github.com/vtr84/)](https://www.github.com/vtr84/)[![Twitter Badge](https://img.shields.io/badge/-vtr84-1572B6?style=flat-square&logo=Twitter&logoColor=white&link=https://twitter.com/vtr84)](https://twitter.com/vtr84)
 
-Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/RQGenerator/Brain-Squizz)
+Second project for [Wild Code School](http://wildcodeschool.com)
 
 ## 👾 Functionality
 
@@ -19,43 +18,30 @@ Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/R
 - After each question the user receive a gif with the score
 - LeaderBoard to see your ranking
 
-
 ## 👾 APIs
 
--[Open Trivia Database](https://opentdb.com/)
--[GIPHY Developers](https://developers.giphy.com/)
+- [Open Trivia Database](https://opentdb.com/)
+
+- [GIPHY Developers](https://developers.giphy.com/)
 
 ## 👾 Technologies Used
 
-![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
-![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)
-![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
-![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)
-![NPM](https://www.npmjs.com/)
-![TailWindcss](https://tailwindcss.com/)
-![StyledComponents](https://styled-components.com/)
-![React Countdown Circle Timer](https://www.npmjs.com/package/react-countdown-circle-timer)
-![he](https://github.com/mathiasbynens/he)
-![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)![Nodejs](https://img.shields.io/badge/-Nodejs-black?style=flat-square&logo=Node.js)![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)![NPM](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white)![TailWindcss](https://img.shields.io/badge/-Tailwindcss-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white)![StyledComponents](https://img.shields.io/badge/-Styled%20Components-DB7093?style=flat-square&logo=styledcomponents&logoColor=white)![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
 
+#### Packages:
+
+- [React Countdown Circle Timer](https://www.npmjs.com/package/react-countdown-circle-timer)
+- [he](https://github.com/mathiasbynens/he)
 
 <br />
 <p align="center">
-  <a href="https://github.com/RQGenerator/Brain-Squizz">
     <img src="public/images/logo.png" alt="Logo" width="100" height="80">
-  </a>
-
   <h3 align="center">Brain Squizz</h3>
-
   <p align="center">
     Challenge your knowledge and have fun at the same time!
     <br />
-    <a href="https://github.com/RQGenerator/Brain-Squizz"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+  <a href="https://rqgenerator.github.io/Brain-Squizz/">Explore the docs »</a>
+  <br />
     <a href="https://brain-squizz.herokuapp.com">View Demo</a>
     ·
     <a href="https://github.com/RQGenerator/Brain-Squizz/issues">Report Bug</a>
@@ -64,8 +50,10 @@ Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/R
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
-<!-- <details open="open">
+
+<!-- TABLE OF CONTENTS 
+
+ <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li>
@@ -88,10 +76,9 @@ Project Link: [https://github.com/RQGenerator/Brain-Squizz](https://github.com/R
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
-</details> -->
+</details>
 
-
-<!-- GETTING STARTED -->
+ GETTING STARTED -->
 
 ## Getting Started
 
@@ -102,6 +89,7 @@ To get a local copy up and running follow these simple steps.
 Make sure you have the latest npm installed by running this command
 
 - npm
+
   ```sh
   npm install npm@latest -g
   ```
@@ -109,29 +97,30 @@ Make sure you have the latest npm installed by running this command
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/RQGenerator/Brain-Squizz.git
    ```
+
 2. Install npm packages
+
    ```sh
    npm install
    ```
 
-<!-- USAGE EXAMPLES -->
-
 ## Usage
 
 1. Start the app
+
    ```sh
    npm start
    ```
+
 2. Enjoy the game and challenge your friends
 
 Refer to the documentation for further information on the gameplay and rules of the game 🎰
 
-_[Documentation](https://rqgenerator.github.io/Brain-Squizz/)_
-
-<!-- ROADMAP -->
+[Documentation](https://rqgenerator.github.io/Brain-Squizz/)
 
 ## Roadmap
 
@@ -144,8 +133,6 @@ See the [open issues](https://github.com/RQGenerator/Brain-Squizz/issues) for a 
 - More challenges
 - Dark theme
 
-<!-- CONTRIBUTING -->
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -157,4 +144,3 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 Happy coding 🧑‍💻
-
